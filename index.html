@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#060914">
+  <meta name="description" content="Portfolio profesional de Norberto Manuel Antúnez Núñez — Analista de Datos, Business Intelligence, Automatización y Compras.">
+  <meta name="author" content="Norberto Manuel Antúnez Núñez">
+  <title>Norberto Manuel Antúnez Núñez | Data · BI · Automation</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root{
+      --bg:#060914;
+      --bg-2:#0a1020;
+      --panel:rgba(15,23,42,.72);
+      --panel-solid:#101827;
+      --text:#f7fbff;
+      --muted:#9eabc0;
+      --dim:#65738a;
+      --line:rgba(255,255,255,.09);
+      --cyan:#00e5ff;
+      --blue:#4d8dff;
+      --violet:#9b6cff;
+      --green:#26e6a6;
+      --gradient:linear-gradient(110deg,var(--cyan),var(--blue) 52%,var(--violet));
+      --shadow:0 24px 80px rgba(0,0,0,.36);
+      --max:1240px;
+      --header:76px;
+      --radius:22px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{
+      font-family:Inter,system-ui,sans-serif;
+      background:
+        radial-gradient(circle at 8% 8%,rgba(0,229,255,.09),transparent 28rem),
+        radial-gradient(circle at 92% 24%,rgba(155,108,255,.10),transparent 30rem),
+        linear-gradient(180deg,#060914 0%,#080d19 52%,#060914 100%);
+      color:var(--text);
+      line-height:1.65;
+      overflow-x:hidden;
+    }
+    body::before{
+      content:"";
+      position:fixed;inset:0;pointer-events:none;z-index:-2;
+      opacity:.25;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+      background-size:48px 48px;
+      mask-image:linear-gradient(to bottom,black,transparent 88%);
+    }
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    ::selection{background:rgba(0,229,255,.25);color:#fff}
+
+    .container{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
+    .progress{position:fixed;top:0;left:0;width:100%;height:3px;z-index:2000;background:transparent}
+    .progress span{display:block;width:0;height:100%;background:var(--gradient);box-shadow:0 0 18px rgba(0,229,255,.7)}
+
+    #ambient{
+      position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden;
+    }
+    .orb{position:absolute;border-radius:50%;filter:blur(55px);opacity:.15}
+    .orb.one{width:280px;height:280px;background:var(--cyan);left:-100px;top:25%}
+    .orb.two{width:330px;height:330px;background:var(--violet);right:-130px;top:55%}
+    .orb.three{width:220px;height:220px;background:var(--blue);left:44%;top:5%}
+
+    header{
+      position:fixed;top:0;left:0;width:100%;height:var(--header);z-index:1000;
+      background:rgba(6,9,20,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+      border-bottom:1px solid transparent;transition:.35s ease;
+    }
+    header.scrolled{border-color:var(--line);background:rgba(6,9,20,.91);box-shadow:0 10px 40px rgba(0,0,0,.18)}
+    nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{font-family:"Space Grotesk",sans-serif;font-weight:800;letter-spacing:-.04em;display:flex;align-items:center;gap:9px;white-space:nowrap}
+    .logo-mark{width:34px;height:34px;border-radius:11px;background:var(--gradient);display:grid;place-items:center;color:#03101a;font-weight:900;box-shadow:0 0 28px rgba(0,229,255,.2)}
+    .logo span{color:var(--cyan)}
+    .nav-links{display:flex;align-items:center;gap:5px;list-style:none}
+    .nav-links a{position:relative;padding:10px 12px;color:var(--muted);font-size:.84rem;font-weight:600;transition:.25s}
+    .nav-links a::after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height:2px;border-radius:5px;background:var(--gradient);transform:scaleX(0);transform-origin:left;transition:.25s}
+    .nav-links a:hover,.nav-links a.active{color:#fff}
+    .nav-links a.active::after,.nav-links a:hover::after{transform:scaleX(1)}
+    .nav-cta,.btn-primary{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      padding:11px 17px;border-radius:999px;background:var(--gradient);color:#03101a;font-weight:800;font-size:.84rem;
+      box-shadow:0 10px 30px rgba(0,229,255,.14);transition:.3s;
+    }
+    .nav-cta:hover,.btn-primary:hover{transform:translateY(-2px);box-shadow:0 15px 38px rgba(0,229,255,.24)}
+    .menu-btn{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.04);color:#fff;cursor:pointer}
+
+    section{padding:110px 0;border-bottom:1px solid var(--line)}
+    .section-head{max-width:760px;margin:0 auto 52px;text-align:center}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;color:var(--cyan);font-family:"Fira Code",monospace;
+      text-transform:uppercase;letter-spacing:.11em;font-size:.72rem;font-weight:600;margin-bottom:12px
+    }
+    .eyebrow::before{content:"";width:25px;height:1px;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+    .section-head h2{font:700 clamp(2rem,4vw,3rem)/1.05 "Space Grotesk",sans-serif;letter-spacing:-.045em}
+    .section-head p{color:var(--muted);margin-top:14px;max-width:650px;margin-inline:auto}
+
+    #hero{min-height:100svh;padding:140px 0 80px;display:grid;align-items:center;border:0;position:relative}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(340px,.88fr);gap:70px;align-items:center}
+    .availability{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(38,230,166,.22);background:rgba(38,230,166,.06);padding:7px 12px;border-radius:999px;color:#aaf8df;font-size:.74rem;font-weight:700;margin-bottom:23px}
+    .pulse{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(38,230,166,.6);animation:pulse 2s infinite}
+    @keyframes pulse{70%{box-shadow:0 0 0 9px rgba(38,230,166,0)}100%{box-shadow:0 0 0 0 rgba(38,230,166,0)}}
+    .hero h1{font:800 clamp(3rem,7vw,6.6rem)/.92 "Space Grotesk",sans-serif;letter-spacing:-.065em;max-width:920px}
+    .hero h1 .gradient{display:inline-block;background:var(--gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-sub{font-size:clamp(1rem,1.7vw,1.28rem);color:#b7c2d4;max-width:780px;margin:25px 0 24px}
+    .hero-sub strong{color:#fff}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+    .btn-secondary{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:11px 17px;border-radius:999px;
+      border:1px solid var(--line);background:rgba(255,255,255,.035);font-weight:700;font-size:.84rem;transition:.3s
+    }
+    .btn-secondary:hover{border-color:rgba(0,229,255,.5);background:rgba(0,229,255,.06);transform:translateY(-2px)}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:18px;margin-top:30px;color:var(--dim);font-size:.77rem}
+    .hero-meta span{display:flex;align-items:center;gap:7px}
+    .hero-meta i{color:var(--cyan)}
+
+    .hero-card-wrap{position:relative;min-height:460px;display:grid;place-items:center}
+    .hero-card-wrap::before{content:"";position:absolute;width:330px;height:330px;border:1px solid rgba(0,229,255,.13);border-radius:50%;box-shadow:0 0 90px rgba(0,229,255,.06);animation:spin 18s linear infinite}
+    .hero-card-wrap::after{content:"";position:absolute;width:400px;height:400px;border:1px dashed rgba(155,108,255,.12);border-radius:50%;animation:spin 28s linear infinite reverse}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .profile-card{
+      width:min(100%,410px);position:relative;z-index:2;padding:30px;border-radius:28px;
+      background:linear-gradient(145deg,rgba(18,28,47,.92),rgba(9,15,29,.86));border:1px solid rgba(255,255,255,.11);
+      box-shadow:var(--shadow),0 0 80px rgba(0,229,255,.07);backdrop-filter:blur(20px);overflow:hidden;
+    }
+    .profile-card::before{content:"";position:absolute;inset:-2px;background:conic-gradient(from 180deg,transparent 0 30%,rgba(0,229,255,.5),transparent 42% 68%,rgba(155,108,255,.45),transparent 80%);opacity:.28;z-index:-1;animation:spin 9s linear infinite}
+    .profile-top{display:flex;align-items:center;gap:16px;margin-bottom:25px}
+    .avatar{width:58px;height:58px;border-radius:18px;background:var(--gradient);display:grid;place-items:center;color:#03101a;font:900 1.1rem "Space Grotesk",sans-serif;box-shadow:0 10px 30px rgba(0,229,255,.2)}
+    .profile-name{font:700 1.03rem "Space Grotesk",sans-serif}
+    .profile-role{color:var(--cyan);font-size:.73rem;margin-top:2px}
+    .signal{display:flex;align-items:flex-end;gap:4px;height:70px;padding:13px 0;margin:10px 0 20px;border-block:1px solid var(--line)}
+    .signal i{display:block;flex:1;min-width:4px;border-radius:4px 4px 1px 1px;background:linear-gradient(to top,var(--cyan),var(--violet));opacity:.75;animation:bars 1.4s ease-in-out infinite alternate}
+    .signal i:nth-child(2){animation-delay:.1s}.signal i:nth-child(3){animation-delay:.2s}.signal i:nth-child(4){animation-delay:.3s}.signal i:nth-child(5){animation-delay:.4s}.signal i:nth-child(6){animation-delay:.5s}.signal i:nth-child(7){animation-delay:.6s}.signal i:nth-child(8){animation-delay:.7s}.signal i:nth-child(9){animation-delay:.8s}.signal i:nth-child(10){animation-delay:.9s}
+    @keyframes bars{to{height:95%!important;opacity:1}}
+    .profile-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .metric{padding:13px;border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:15px}
+    .metric b{display:block;font:700 1.08rem "Space Grotesk";color:#fff}.metric small{color:var(--dim);font-size:.68rem}
+    .stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+    .stack span{font:500 .66rem "Fira Code";padding:5px 8px;border-radius:7px;border:1px solid rgba(0,229,255,.15);color:#aeefff;background:rgba(0,229,255,.035)}
+
+    .about-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:65px;align-items:start}
+    .about-copy p{color:var(--muted);font-size:1rem;margin-bottom:18px}
+    .about-copy p:first-child{font-size:1.13rem;color:#cbd5e1}
+    .evolution{position:relative}
+    .evolution::before{content:"";position:absolute;left:20px;top:20px;bottom:20px;width:1px;background:linear-gradient(var(--cyan),rgba(155,108,255,.2))}
+    .evo{position:relative;display:grid;grid-template-columns:42px 1fr;gap:15px;margin-bottom:19px}
+    .evo-icon{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:#0c1727;border:1px solid rgba(0,229,255,.2);color:var(--cyan);z-index:1}
+    .evo h3{font-size:.93rem;margin:2px 0 3px}.evo p{font-size:.78rem;color:var(--dim)}
+
+    .timeline{max-width:1000px;margin:auto;position:relative}
+    .timeline::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--cyan) 8%,rgba(255,255,255,.12) 50%,var(--violet) 92%,transparent);transform:translateX(-50%)}
+    .timeline-item{width:50%;position:relative;padding:0 44px 38px}
+    .timeline-item:nth-child(odd){margin-right:auto}.timeline-item:nth-child(even){margin-left:50%}
+    .timeline-node{position:absolute;top:10px;width:13px;height:13px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 5px rgba(0,229,255,.08),0 0 22px rgba(0,229,255,.6)}
+    .timeline-item:nth-child(odd) .timeline-node{right:-6px}.timeline-item:nth-child(even) .timeline-node{left:-6px}
+    .timeline-card{padding:24px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,rgba(17,27,45,.82),rgba(9,14,26,.74));transition:.35s;box-shadow:0 14px 45px rgba(0,0,0,.13)}
+    .timeline-card:hover{transform:translateY(-5px);border-color:rgba(0,229,255,.3);box-shadow:0 20px 55px rgba(0,0,0,.25),0 0 35px rgba(0,229,255,.05)}
+    .current-tag{display:inline-flex;padding:4px 8px;border-radius:6px;background:rgba(38,230,166,.1);border:1px solid rgba(38,230,166,.18);color:#91f3d3;font:600 .62rem "Fira Code";margin-bottom:8px}
+    .date{font:600 .68rem "Fira Code";color:var(--cyan);text-transform:uppercase;letter-spacing:.08em}
+    .timeline-card h3{font:700 1.18rem "Space Grotesk";margin:6px 0}
+    .company{color:#aeb9c9;font-size:.77rem;display:flex;gap:7px;align-items:flex-start;margin-bottom:15px}
+    .company i{color:var(--cyan);margin-top:4px}
+    .timeline-card ul{list-style:none}.timeline-card li{position:relative;padding-left:17px;color:var(--muted);font-size:.78rem;margin:8px 0}
+    .timeline-card li::before{content:"";position:absolute;left:0;top:.65em;width:5px;height:5px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px rgba(0,229,255,.7)}
+    .timeline-card strong{color:#dbe7f6}
+
+    .tech-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px;align-items:stretch}
+    .tech-intro{padding:30px;border-radius:var(--radius);border:1px solid var(--line);background:rgba(255,255,255,.025)}
+    .tech-intro h3{font:700 1.55rem "Space Grotesk";margin-bottom:10px}
+    .tech-intro p{color:var(--muted);font-size:.87rem}
+    .tech-command{margin-top:25px;border:1px solid var(--line);background:#050a13;border-radius:15px;padding:15px;font:500 .69rem "Fira Code";color:#9eb1c7}
+    .tech-command span{color:var(--green)}.tech-command b{color:var(--cyan)}
+    .tech-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .tech-card{padding:21px;border:1px solid var(--line);background:rgba(15,23,42,.6);border-radius:18px;transition:.3s}
+    .tech-card:hover{transform:translateY(-4px);border-color:rgba(0,229,255,.28);background:rgba(20,31,52,.75)}
+    .tech-card-head{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+    .tech-card-head i{width:35px;height:35px;display:grid;place-items:center;border-radius:10px;background:rgba(0,229,255,.07);color:var(--cyan)}
+    .tech-card h3{font-size:.91rem}
+    .tags{display:flex;flex-wrap:wrap;gap:6px}.tags span{font-size:.67rem;color:#bdc9da;border:1px solid var(--line);border-radius:7px;padding:5px 7px;background:rgba(255,255,255,.025)}
+
+    .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .skill{padding:22px;border-radius:19px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(17,27,45,.75),rgba(9,14,26,.65));transition:.3s;position:relative;overflow:hidden}
+    .skill::after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-45px;top:-45px;background:rgba(0,229,255,.08);filter:blur(5px)}
+    .skill:hover{transform:translateY(-5px);border-color:rgba(0,229,255,.25)}
+    .skill i{font-size:1.15rem;color:var(--cyan);margin-bottom:13px}
+    .skill h3{font:700 1rem "Space Grotesk";margin-bottom:5px}.skill p{font-size:.76rem;color:var(--muted)}
+
+    .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .cap{min-height:255px;padding:26px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,rgba(19,29,49,.86),rgba(8,14,26,.78));position:relative;overflow:hidden;transition:.35s}
+    .cap:hover{transform:translateY(-6px);border-color:rgba(0,229,255,.28);box-shadow:0 20px 60px rgba(0,0,0,.2)}
+    .cap-num{font:600 .67rem "Fira Code";color:var(--cyan);letter-spacing:.1em}
+    .cap-icon{font-size:1.6rem;margin:26px 0 15px;background:var(--gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .cap h3{font:700 1.25rem "Space Grotesk";margin-bottom:9px}.cap p{font-size:.78rem;color:var(--muted)}
+    .cap .line{position:absolute;left:26px;bottom:0;width:80px;height:3px;background:var(--gradient);box-shadow:0 0 18px rgba(0,229,255,.35)}
+
+    .education{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .edu-col{border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.02);padding:25px}
+    .edu-title{display:flex;align-items:center;gap:10px;color:var(--cyan);font:700 1rem "Space Grotesk";margin-bottom:16px}
+    .edu-title i{width:35px;height:35px;border-radius:10px;background:rgba(0,229,255,.07);display:grid;place-items:center}
+    .edu{padding:15px 0;border-bottom:1px solid var(--line)}.edu:last-child{border-bottom:0}
+    .edu-year{font:600 .64rem "Fira Code";color:var(--green);letter-spacing:.07em}.edu h3{font-size:.9rem;margin:5px 0}.edu p{font-size:.72rem;color:var(--dim)}
+
+    #contact{border-bottom:0;padding-bottom:60px}
+    .contact-card{position:relative;overflow:hidden;text-align:center;padding:65px 30px;border:1px solid rgba(0,229,255,.16);border-radius:30px;background:radial-gradient(circle at 50% 0,rgba(0,229,255,.09),transparent 45%),linear-gradient(145deg,rgba(17,28,48,.9),rgba(7,12,23,.9));box-shadow:var(--shadow)}
+    .contact-card::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,.035),transparent);transform:translateX(-100%);animation:sheen 7s ease-in-out infinite}
+    @keyframes sheen{15%,100%{transform:translateX(100%)}}
+    .contact-card h2{font:800 clamp(2.2rem,5vw,4rem)/1 "Space Grotesk";letter-spacing:-.055em}
+    .contact-card h2 span{background:var(--gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .contact-card p{max-width:680px;color:var(--muted);margin:15px auto 28px}
+    .contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
+    .contact-link{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);background:rgba(255,255,255,.035);padding:10px 15px;border-radius:999px;font-size:.78rem;font-weight:600;transition:.3s}
+    .contact-link:hover{border-color:rgba(0,229,255,.35);color:var(--cyan);transform:translateY(-2px)}
+
+    footer{padding:24px 0 30px;text-align:center;color:var(--dim);font-size:.68rem}
+    footer .footer-main{font-family:"Fira Code";margin-bottom:4px} footer strong{color:#95a4ba}
+
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
+    .tilt{transform-style:preserve-3d}
+
+    @media(max-width:1050px){
+      .nav-links{gap:0}.nav-links a{padding-inline:8px;font-size:.76rem}
+      .nav-cta{padding:9px 13px}
+      .hero-grid{gap:40px}.hero h1{font-size:clamp(3rem,7vw,5rem)}
+      .tech-layout{grid-template-columns:1fr}.skills{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:800px){
+      :root{--header:68px}
+      .container{width:min(var(--max),calc(100% - 28px))}
+      header{height:68px}
+      .nav-cta{display:none}.menu-btn{display:grid;place-items:center}
+      .nav-links{
+        position:fixed;left:14px;right:14px;top:78px;display:flex;flex-direction:column;align-items:stretch;gap:3px;
+        padding:10px;border:1px solid var(--line);border-radius:18px;background:rgba(7,12,23,.96);backdrop-filter:blur(20px);
+        box-shadow:0 25px 60px rgba(0,0,0,.45);opacity:0;pointer-events:none;transform:translateY(-8px);transition:.25s
+      }
+      .nav-links.open{opacity:1;pointer-events:auto;transform:none}
+      .nav-links a{display:block;padding:13px 14px;border-radius:11px}.nav-links a:hover{background:rgba(255,255,255,.04)}
+      .nav-links a::after{display:none}
+      section{padding:82px 0}.section-head{margin-bottom:38px}
+      #hero{padding:105px 0 65px;min-height:auto}
+      .hero-grid{grid-template-columns:1fr;gap:45px}
+      .hero h1{font-size:clamp(2.85rem,13vw,4.7rem)}
+      .hero-sub{font-size:1rem}
+      .hero-card-wrap{min-height:420px}
+      .hero-card-wrap::before{width:275px;height:275px}.hero-card-wrap::after{width:330px;height:330px}
+      .profile-card{width:min(100%,390px)}
+      .about-grid,.education{grid-template-columns:1fr;gap:35px}
+      .timeline::before{left:8px;transform:none}
+      .timeline-item,.timeline-item:nth-child(even),.timeline-item:nth-child(odd){width:100%;margin:0;padding:0 0 25px 34px}
+      .timeline-item .timeline-node,.timeline-item:nth-child(even) .timeline-node,.timeline-item:nth-child(odd) .timeline-node{left:2px;right:auto}
+      .cap-grid{grid-template-columns:1fr}.skills{grid-template-columns:1fr}.tech-cards{grid-template-columns:1fr}
+      .contact-card{padding:48px 18px}
+    }
+    @media(max-width:480px){
+      .logo{font-size:.82rem}.logo-mark{width:31px;height:31px}
+      .hero-actions{display:grid;grid-template-columns:1fr}.btn-primary,.btn-secondary{width:100%}
+      .hero-meta{gap:10px;display:grid}.profile-card{padding:23px}.profile-grid{gap:8px}
+      .metric{padding:11px}.metric b{font-size:.98rem}
+      .timeline-card{padding:19px}.cap{min-height:220px}
+      .contact-links{display:grid;grid-template-columns:1fr}.contact-link{justify-content:center}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}
+      .reveal{opacity:1;transform:none}
+    }
+  
+    .portrait-shell{position:relative;width:min(100%,420px);margin:auto;padding:12px}
+    .portrait-shell::before,.portrait-shell::after{content:"";position:absolute;border-radius:32px;pointer-events:none}
+    .portrait-shell::before{inset:0;background:linear-gradient(135deg,rgba(0,229,255,.55),transparent 35%,transparent 65%,rgba(155,108,255,.5));filter:blur(.2px);opacity:.75}
+    .portrait-shell::after{inset:22px;background:radial-gradient(circle at 20% 20%,rgba(0,229,255,.18),transparent 34%),radial-gradient(circle at 90% 90%,rgba(155,108,255,.16),transparent 38%);mix-blend-mode:screen}
+    .portrait-frame{position:relative;z-index:2;padding:5px;border-radius:30px;background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.035));box-shadow:0 28px 80px rgba(0,0,0,.45),0 0 60px rgba(0,229,255,.08)}
+    .portrait-frame img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 22%;border-radius:26px;filter:saturate(.94) contrast(1.04)}
+    .portrait-label{position:absolute;z-index:4;left:28px;right:28px;bottom:27px;padding:13px 15px;border:1px solid rgba(255,255,255,.13);border-radius:15px;background:rgba(5,9,20,.72);backdrop-filter:blur(15px);display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .portrait-label strong{font:700 .86rem "Space Grotesk"}.portrait-label small{display:block;color:#9eabc0;font-size:.65rem;margin-top:2px}
+    .portrait-dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 16px rgba(38,230,166,.8);flex:none}
+    .hero-kicker{display:flex;align-items:center;gap:8px;margin-top:19px;color:#7f8da4;font:500 .68rem "Fira Code";letter-spacing:.04em}
+    .hero-kicker i{color:var(--cyan)}
+    .executive-btn{cursor:pointer;border:0}
+    .modal{position:fixed;inset:0;z-index:3000;display:grid;place-items:center;padding:20px;background:rgba(2,5,12,.76);backdrop-filter:blur(12px);opacity:0;pointer-events:none;transition:.25s}
+    .modal.open{opacity:1;pointer-events:auto}
+    .modal-card{width:min(720px,100%);max-height:min(760px,90vh);overflow:auto;border:1px solid rgba(0,229,255,.18);border-radius:25px;background:linear-gradient(145deg,#111b2d,#080d18);box-shadow:0 30px 100px rgba(0,0,0,.55);padding:30px;position:relative}
+    .modal-close{position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:11px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:#fff;cursor:pointer}
+    .modal-card h3{font:800 1.7rem "Space Grotesk";margin:8px 0}.modal-card p{color:var(--muted);font-size:.86rem;margin:10px 0}
+    .modal-points{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}.modal-point{padding:15px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.025)}.modal-point b{display:block;font-size:.82rem;margin-bottom:4px}.modal-point span{color:var(--dim);font-size:.7rem}
+    .quick-nav{position:fixed;right:18px;bottom:18px;z-index:900;display:flex;flex-direction:column;gap:8px}
+    .quick-nav button{width:43px;height:43px;border-radius:14px;border:1px solid var(--line);background:rgba(8,14,26,.82);color:#aab7ca;cursor:pointer;backdrop-filter:blur(12px);transition:.25s}
+    .quick-nav button:hover{color:var(--cyan);border-color:rgba(0,229,255,.35);transform:translateY(-2px)}
+    @media(max-width:800px){.portrait-shell{width:min(100%,360px)}.modal-points{grid-template-columns:1fr}.quick-nav{right:12px;bottom:12px}}
+    @media(prefers-reduced-motion:reduce){.portrait-shell::before{animation:none}}
+
+  </style>
+</head>
+
+<body>
+  <div class="progress"><span id="progressBar"></span></div>
+  <div id="ambient" aria-hidden="true">
+    <div class="orb one"></div><div class="orb two"></div><div class="orb three"></div>
+  </div>
+
+  <header id="siteHeader">
+    <div class="container">
+      <nav aria-label="Navegación principal">
+        <a class="logo" href="#inicio" aria-label="Ir al inicio">
+          <span class="logo-mark">N</span>
+          NORBERTO <span>ANTÚNEZ</span>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#perfil">Perfil</a></li>
+          <li><a href="#experiencia">Experiencia</a></li>
+          <li><a href="#tecnologias">Tecnologías</a></li>
+          <li><a href="#competencias">Competencias</a></li>
+          <li><a href="#capacidades">Capacidades</a></li>
+          <li><a href="#formacion">Formación</a></li>
+        </ul>
+
+        <a class="nav-cta" href="#contacto"><i class="fa-solid fa-paper-plane"></i> Contactar</a>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menú" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="reveal">
+            <div class="availability"><span class="pulse"></span> ANALÍTICA · BI · AUTOMATIZACIÓN</div>
+            <h1>Datos que <span class="gradient">piensan.</span><br>Decisiones que <span class="gradient">avanzan.</span></h1>
+            <p class="hero-sub">
+              <strong>Analista de Datos · Business Intelligence · Automatización</strong><br>
+              Tecnología y analítica aplicada a la toma de decisiones empresariales, con experiencia en Compras, Control de Gestión y entornos corporativos.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn-primary" href="#experiencia"><i class="fa-solid fa-arrow-down"></i> Explorar trayectoria</a>
+              <a class="btn-secondary" href="https://www.linkedin.com/in/norberto2026" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+              <button class="btn-secondary executive-btn" id="openExecutive" type="button"><i class="fa-solid fa-sparkles"></i> Resumen ejecutivo</button>
+            </div>
+
+            <div class="hero-kicker"><i class="fa-solid fa-circle-nodes"></i> Negocio → Datos → Insight → Decisión → Automatización</div>
+
+            <div class="hero-meta">
+              <span><i class="fa-solid fa-location-dot"></i> Badajoz, España</span>
+              <span><i class="fa-solid fa-chart-line"></i> Data & Business Intelligence</span>
+              <span><i class="fa-solid fa-gear"></i> Automatización de procesos</span>
+            </div>
+          </div>
+
+          <div class="hero-card-wrap reveal tilt" id="tiltCard">
+            <div class="portrait-shell">
+              <div class="portrait-frame">
+                <img src="norberto-perfil.jpg" alt="Norberto Manuel Antúnez Núñez, Analista de Datos" loading="eager">
+                <div class="portrait-label">
+                  <div>
+                    <strong>Norberto Manuel Antúnez Núñez</strong>
+                    <small>Analista de Datos · Business Intelligence · Automatización</small>
+                  </div>
+                  <span class="portrait-dot" title="Perfil profesional"></span>
+                </div>
+              </div>
+            </div>
+          </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencia">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">02 · Trayectoria</span>
+          <h2>Experiencia profesional.</h2>
+          <p>Una evolución desde atención al cliente y banca hasta control de gestión, analítica y tecnología aplicada al negocio.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <span class="timeline-node"></span>
+            <div class="timeline-card">
+              <span class="current-tag">ACTUALIDAD</span>
+              <div class="date">Actualidad</div>
+              <h3>Analista de Datos</h3>
+              <div class="company"><i class="fa-solid fa-building"></i><span>Departamento de Compras · GRUPO SUMELEX, S.A. · Multinacional IMELCO</span></div>
+              <ul>
+                <li><strong>Analítica & BI:</strong> extracción, transformación y limpieza de grandes volúmenes de datos con Power Query; dashboards e informes estratégicos con Power BI y análisis complementario con Qlik.</li>
+                <li><strong>Dirección:</strong> analíticas avanzadas e indicadores clave para planificación estratégica y toma de decisiones.</li>
+                <li><strong>Compras & competencia:</strong> comportamiento de compras, productos equivalentes, proveedores y competidores.</li>
+                <li><strong>Negocio:</strong> análisis de stock, márgenes, compras, ventas y patrones de clientes.</li>
+                <li><strong>Automatización:</strong> Power Automate, n8n y macros VBA para procesos recurrentes.</li>
+                <li><strong>Tecnología:</strong> Python, JavaScript, CSS, Firebase y VS Code, integrado con ERP Go! Manage de Telematel.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <span class="timeline-node"></span>
+            <div class="timeline-card">
+              <div class="date">2025</div>
+              <h3>Controller de Gestión</h3>
+              <div class="company"><i class="fa-solid fa-recycle"></i><span>MOVILEX RECYCLING · Lobón, Badajoz</span></div>
+              <ul>
+                <li>Contabilidad, control de operaciones y gestión financiera con Microsoft Dynamics NAV.</li>
+                <li>Análisis de costes y datos financieros mediante consultas Query-SQL y Power BI.</li>
+                <li>Control documental PRL/CAE y gestión relacionada con logística, RAEE, SCRAP y DEI.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <span class="timeline-node"></span>
+            <div class="timeline-card">
+              <div class="date">2022 – 2025</div>
+              <h3>Controller de Gestión</h3>
+              <div class="company"><i class="fa-solid fa-flask"></i><span>BAFICOM · Parque Científico y Tecnológico de la Universidad de Extremadura · Badajoz</span></div>
+              <ul>
+                <li>Contabilidad, control de operaciones y gestión financiera con Dynamics NAV.</li>
+                <li>Control documental PRL/CAE mediante plataformas y SharePoint.</li>
+                <li>Análisis de datos financieros y de costes con Query, SQL y Power BI.</li>
+                <li>Planificación y desarrollo estratégico, bancos y liquidaciones.</li>
+                <li>Gestión fiscal: modelos 111, 115, 202, 303, 347, 390, 123, 840 y 349.</li>
+                <li>Control de logística, RAEE, SCRAP y DEI.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <span class="timeline-node"></span>
+            <div class="timeline-card">
+              <div class="date">2022</div>
+              <h3>Jefe de Administración</h3>
+              <div class="company"><i class="fa-solid fa-briefcase"></i><span>MOGUER PROYECTOS Y GESTIÓN EMPRESARIAL · Badajoz</span></div>
+              <ul>
+                <li>Gestión PRL/CAE y apoyo SPA en el ámbito de la Central Nuclear de Almaraz-Trillo.</li>
+                <li>Ajustes contables, gestión de proveedores y apoyo a RRHH.</li>
+                <li>Facturación y colaboración en proyectos de inversión (PPM).</li>
+                <li>Gestión documental y coordinación de subvenciones CDTI.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <span class="timeline-node"></span>
+            <div class="timeline-card">
+              <div class="date">2021 – 2022</div>
+              <h3>Cajero de Banca</h3>
+              <div class="company"><i class="fa-solid fa-building-columns"></i><span>BANCO SANTANDER · Sucursales de Badajoz y Olivenza</span></div>
+              <ul>
+                <li>Arqueos y movimientos de caja, transacciones bancarias y control de operaciones.</li>
+                <li>Gestión de flujos de efectivo, cajeros ATM, depósitos y recibos.</li>
+                <li>Análisis financiero e inversiones y operativa en sistema Gravity.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <span class="timeline-node"></span>
+            <div class="timeline-card">
+              <div class="date">2018 – 2020</div>
+              <h3>Atención al Cliente · Soporte Técnico</h3>
+              <div class="company"><i class="fa-solid fa-headset"></i><span>GSS COVISIAN GROUP · Badajoz / MARKTEL · Elvas, Portugal</span></div>
+              <ul>
+                <li>Atención al cliente, telemarketing y soporte técnico, desarrollando comunicación, resolución de incidencias y orientación al usuario.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="tecnologias">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">03 · Ecosistema</span>
+          <h2>Stack tecnológico.</h2>
+          <p>Herramientas seleccionadas para analizar, transformar, automatizar y comunicar información empresarial.</p>
+        </div>
+
+        <div class="tech-layout">
+          <div class="tech-intro reveal">
+            <h3>Una caja de herramientas orientada a negocio.</h3>
+            <p>La tecnología no es el fin: es el medio para convertir datos dispersos en análisis, automatizaciones y soporte real a la decisión.</p>
+            <div class="tech-command"><span>norberto@data</span>:~$ <b>transform</b> --data --business --automation<br><br>output: <span>insight → decision → action</span></div>
+          </div>
+
+          <div class="tech-cards">
+            <article class="tech-card reveal"><div class="tech-card-head"><i class="fa-solid fa-chart-pie"></i><h3>Data & Business Intelligence</h3></div><div class="tags"><span>Power BI</span><span>Power Query</span><span>Power Pivot</span><span>Qlik</span><span>SQL</span><span>Tableau</span><span>Excel</span></div></article>
+            <article class="tech-card reveal"><div class="tech-card-head"><i class="fa-solid fa-gears"></i><h3>Automatización</h3></div><div class="tags"><span>Power Automate</span><span>n8n</span><span>VBA</span><span>Zapier</span><span>Make</span></div></article>
+            <article class="tech-card reveal"><div class="tech-card-head"><i class="fa-solid fa-code"></i><h3>Programación & Entornos</h3></div><div class="tags"><span>Python</span><span>JavaScript</span><span>CSS</span><span>Java</span><span>VS Code</span><span>Firebase</span></div></article>
+            <article class="tech-card reveal"><div class="tech-card-head"><i class="fa-solid fa-server"></i><h3>ERP & Sistemas</h3></div><div class="tags"><span>Go! Manage · Telematel</span><span>Dynamics NAV</span><span>SAP</span><span>SAGE</span><span>DELSOL</span></div></article>
+            <article class="tech-card reveal"><div class="tech-card-head"><i class="fa-solid fa-brain"></i><h3>IA & Productividad</h3></div><div class="tags"><span>ChatGPT</span><span>DALL-E</span><span>Microsoft 365</span><span>Canva</span><span>SharePoint</span></div></article>
+            <article class="tech-card reveal"><div class="tech-card-head"><i class="fa-solid fa-file-excel"></i><h3>Reporting & Office</h3></div><div class="tags"><span>Microsoft Office Specialist</span><span>Excel avanzado</span><span>Reporting</span><span>Modelado analítico</span></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="competencias">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">04 · Core Skills</span>
+          <h2>Lo que aporto al negocio.</h2>
+          <p>Competencias técnicas y profesionales que conectan análisis, gestión y ejecución.</p>
+        </div>
+
+        <div class="skills">
+          <article class="skill reveal"><i class="fa-solid fa-chart-line"></i><h3>Analítica de Datos & Reporting</h3><p>Transformación ETL, análisis, reporting y dashboards orientados a negocio.</p></article>
+          <article class="skill reveal"><i class="fa-solid fa-cart-shopping"></i><h3>Compras & Proveedores</h3><p>Evaluación de compras, proveedores, productos equivalentes y competencia.</p></article>
+          <article class="skill reveal"><i class="fa-solid fa-boxes-stacked"></i><h3>Stocks, Márgenes & Ventas</h3><p>Lectura de inventarios, márgenes, ventas y comportamiento comercial.</p></article>
+          <article class="skill reveal"><i class="fa-solid fa-diagram-project"></i><h3>Automatización</h3><p>Power Automate, n8n y VBA para optimizar procesos recurrentes.</p></article>
+          <article class="skill reveal"><i class="fa-solid fa-chess"></i><h3>Apoyo a Dirección</h3><p>KPIs y analíticas para planificación estratégica y toma de decisiones.</p></article>
+          <article class="skill reveal"><i class="fa-solid fa-users"></i><h3>Competencias Personales</h3><p>Trabajo en equipo, creatividad, comunicación, liderazgo, adaptación, pensamiento crítico y proactividad.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="capacidades">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">05 · Aplicación</span>
+          <h2>Datos que se convierten en acción.</h2>
+          <p>El valor diferencial está en conectar la información con una necesidad empresarial concreta.</p>
+        </div>
+
+        <div class="cap-grid">
+          <article class="cap reveal">
+            <div class="cap-num">01 · DATA / BI</div><div class="cap-icon"><i class="fa-solid fa-chart-area"></i></div>
+            <h3>Dashboards y modelado analítico</h3>
+            <p>Cuadros de mando e informes con Power BI y Qlik, apoyados en Power Query, para supervisar ventas, stocks, márgenes y otros indicadores de negocio.</p>
+            <div class="line"></div>
+          </article>
+          <article class="cap reveal">
+            <div class="cap-num">02 · AUTOMATION</div><div class="cap-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <h3>Workflows inteligentes</h3>
+            <p>Diseño de automatizaciones con Power Automate, n8n y VBA para reducir trabajo manual y mejorar la continuidad de procesos recurrentes.</p>
+            <div class="line"></div>
+          </article>
+          <article class="cap reveal">
+            <div class="cap-num">03 · PROCUREMENT</div><div class="cap-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+            <h3>Compras y comportamiento comercial</h3>
+            <p>Análisis de proveedores, equivalencias, competencia, stock, márgenes, ventas y patrones de clientes mediante datos del ERP y otras fuentes.</p>
+            <div class="line"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="formacion">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">06 · Formación</span>
+          <h2>Aprendizaje continuo.</h2>
+          <p>Formación empresarial, financiera, tecnológica y de inteligencia artificial.</p>
+        </div>
+
+        <div class="education">
+          <div class="edu-col reveal">
+            <div class="edu-title"><i class="fa-solid fa-graduation-cap"></i> Formación académica</div>
+            <div class="edu"><div class="edu-year">2025 – 2026</div><h3>Máster en Inteligencia Artificial Aplicada</h3><p>EBS · Sabal University · DQ Certificated</p></div>
+            <div class="edu"><div class="edu-year">2024 – 2025</div><h3>MBA · Gestión de Proyectos con SAP</h3><p>EFEM · EUNEIZ · Universidad Vitoria-Gasteiz</p></div>
+            <div class="edu"><div class="edu-year">2023 – 2024</div><h3>Máster en Prevención de Riesgos Laborales</h3><p>Universidad Europea Miguel de Cervantes · Seguridad, Higiene, Ergonomía y Psicosociología Aplicada</p></div>
+            <div class="edu"><div class="edu-year">2021 – 2022</div><h3>Máster en Creación de Empresas e Innovación</h3><p>Universidad de Extremadura</p></div>
+            <div class="edu"><div class="edu-year">2020 – 2021</div><h3>Máster en Tributación, Contabilidad y Gestión Financiera</h3><p>Cámara de Comercio de Badajoz</p></div>
+            <div class="edu"><div class="edu-year">2013 – 2017</div><h3>Grado en Administración y Dirección de Empresas</h3><p>Universidad de Extremadura</p></div>
+          </div>
+
+          <div class="edu-col reveal">
+            <div class="edu-title"><i class="fa-solid fa-certificate"></i> Especialización</div>
+            <div class="edu"><div class="edu-year">300 HORAS</div><h3>Big Data y Business Analytics</h3><p>Análisis de datos aplicado a la toma de decisiones empresariales.</p></div>
+            <div class="edu"><div class="edu-year">140 HORAS</div><h3>Análisis y Programación en Java</h3><p>Estructura de datos y lógica computacional.</p></div>
+            <div class="edu"><div class="edu-year">100 HORAS</div><h3>Data Mining & Business Intelligence</h3><p>Análisis de información económica y elaboración de informes.</p></div>
+            <div class="edu"><div class="edu-year">60 HORAS</div><h3>ChatGPT y DALL-E</h3><p>Apoyo a tareas administrativas y mejora de productividad.</p></div>
+            <div class="edu"><div class="edu-year">CERTIFICACIONES</div><h3>MOS · Professional SQL Developer · SAP · SAGE · DELSOL</h3><p>Certificaciones, cursos y uso profesional según el área correspondiente.</p></div>
+            <div class="edu"><div class="edu-year">OTROS</div><h3>Inglés B1 · ECTS adicionales</h3><p>Dirección de Ventas I y II · Gestión de la Competencia · Liderazgo Emprendedor · Asesoría Fiscal · ISO 9001-14001.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="container">
+        <div class="contact-card reveal">
+          <span class="eyebrow">07 · Contacto</span>
+          <h2>Hablemos de <span>datos.</span></h2>
+          <p>Si buscas un perfil capaz de entender el negocio, trabajar con datos y convertir la información en herramientas para decidir, podemos conectar.</p>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:nantunezn@gmail.com"><i class="fa-solid fa-envelope"></i> nantunezn@gmail.com</a>
+            <a class="contact-link" href="tel:+34655314020"><i class="fa-solid fa-phone"></i> +34 655 31 40 20</a>
+            <a class="contact-link" href="https://www.linkedin.com/in/norberto2026" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <span class="contact-link"><i class="fa-solid fa-location-dot"></i> Badajoz, España</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-main">DATA · BUSINESS · TECHNOLOGY · AUTOMATION</div>
+      <div>© 2026 Norberto Manuel Antúnez Núñez · Portfolio profesional · Badajoz, España</div>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const header = document.getElementById('siteHeader');
+      const progress = document.getElementById('progressBar');
+      const menuBtn = document.getElementById('menuBtn');
+      const navLinks = document.getElementById('navLinks');
+      const navAnchors = [...document.querySelectorAll('.nav-links a')];
+      const sections = [...document.querySelectorAll('main section[id]')];
+
+      const onScroll = () => {
+        const y = window.scrollY;
+        header.classList.toggle('scrolled', y > 20);
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        progress.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+
+        let current = 'inicio';
+        sections.forEach(section => {
+          if (y + 150 >= section.offsetTop) current = section.id;
+        });
+        navAnchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+      };
+
+      window.addEventListener('scroll', onScroll, {passive:true});
+      onScroll();
+
+      const closeMenu = () => {
+        navLinks.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+        menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+      };
+
+      menuBtn.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        menuBtn.setAttribute('aria-expanded', String(open));
+        menuBtn.innerHTML = open
+          ? '<i class="fa-solid fa-xmark"></i>'
+          : '<i class="fa-solid fa-bars"></i>';
+      });
+
+      navAnchors.forEach(a => a.addEventListener('click', closeMenu));
+      window.addEventListener('resize', () => { if (window.innerWidth > 800) closeMenu(); });
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+
+      const modal = document.getElementById('executiveModal');
+      const openExecutive = document.getElementById('openExecutive');
+      const closeExecutive = document.getElementById('closeExecutive');
+      const modalExperience = document.getElementById('modalExperience');
+      const toTop = document.getElementById('toTop');
+      const toContact = document.getElementById('toContact');
+
+      const setModal = (open) => {
+        if (!modal) return;
+        modal.classList.toggle('open', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+        if (open) closeExecutive?.focus();
+      };
+
+      openExecutive?.addEventListener('click', () => setModal(true));
+      closeExecutive?.addEventListener('click', () => setModal(false));
+      modal?.addEventListener('click', e => { if (e.target === modal) setModal(false); });
+      modalExperience?.addEventListener('click', () => setModal(false));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') setModal(false); });
+
+      toTop?.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+      toContact?.addEventListener('click', () => document.getElementById('contacto')?.scrollIntoView({behavior:'smooth'}));
+
+      // Micro-interacción premium en escritorio: inclinación suave de la tarjeta principal.
+      const card = document.getElementById('tiltCard');
+      if (card && window.matchMedia('(pointer:fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        card.addEventListener('mousemove', e => {
+          const r = card.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width - .5;
+          const y = (e.clientY - r.top) / r.height - .5;
+          card.style.transform = `perspective(900px) rotateY(${x * 5}deg) rotateX(${y * -5}deg)`;
+        });
+        card.addEventListener('mouseleave', () => card.style.transform = '');
+      }
+    })();
+  </script>
+
+  <div class="quick-nav" aria-label="Accesos rápidos">
+    <button type="button" id="toTop" aria-label="Volver arriba"><i class="fa-solid fa-arrow-up"></i></button>
+    <button type="button" id="toContact" aria-label="Ir a contacto"><i class="fa-solid fa-paper-plane"></i></button>
+  </div>
+
+  <div class="modal" id="executiveModal" role="dialog" aria-modal="true" aria-labelledby="executiveTitle">
+    <div class="modal-card">
+      <button class="modal-close" id="closeExecutive" type="button" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+      <span class="eyebrow">Resumen ejecutivo</span>
+      <h3 id="executiveTitle">Un perfil híbrido orientado a negocio.</h3>
+      <p>Administración, control de gestión, analítica de datos, Business Intelligence, Compras y automatización convergen en un mismo enfoque: transformar información empresarial en conocimiento útil para la decisión.</p>
+      <div class="modal-points">
+        <div class="modal-point"><b>Business Intelligence</b><span>Power BI · Qlik · Power Query · SQL</span></div>
+        <div class="modal-point"><b>Automatización</b><span>Power Automate · n8n · VBA</span></div>
+        <div class="modal-point"><b>Compras & negocio</b><span>Proveedores · competencia · stock · márgenes · ventas</span></div>
+        <div class="modal-point"><b>Tecnología aplicada</b><span>Python · JavaScript · CSS · Firebase · VS Code</span></div>
+      </div>
+      <div class="hero-actions" style="margin-top:22px">
+        <a class="btn-primary" href="#experiencia" id="modalExperience"><i class="fa-solid fa-chart-line"></i> Ver experiencia</a>
+        <a class="btn-secondary" href="mailto:nantunezn@gmail.com"><i class="fa-solid fa-envelope"></i> Contactar</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
