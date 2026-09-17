@@ -318,7 +318,24 @@
 #perfil-ampliado{padding:clamp(3rem,7vw,6rem) 1.25rem}#perfil-ampliado .section-inner{max-width:1120px;margin:auto}#perfil-ampliado .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1rem;margin-top:2rem}#perfil-ampliado .skill-card{padding:1.35rem;border:1px solid rgba(120,190,220,.22);border-radius:18px;background:rgba(20,30,48,.55)}#perfil-ampliado .skill-card h3{margin:0 0 .7rem}#perfil-ampliado .skill-card p{line-height:1.65;margin:0}#perfil-ampliado .eyebrow{letter-spacing:.16em;font-size:.75rem;font-weight:700;color:#65d9ef}
 </style>
 
-</head>
+<style>
+/* Corrección de imagen de perfil y accesibilidad móvil */
+.portrait-frame{overflow:hidden}
+.portrait-frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:center top;opacity:1;visibility:visible}
+</style>\n
+<style>
+/* Formación prioritaria tras la experiencia: presentación ejecutiva, legible y adaptable */
+#formacion.education-featured{position:relative;padding-top:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem);background:linear-gradient(180deg,rgba(18,39,66,.30),rgba(7,13,27,.05));border-top:1px solid rgba(88,196,255,.22);border-bottom:1px solid rgba(88,196,255,.16)}
+#formacion.education-featured .section-head h2{color:#f4f8ff}
+#formacion.education-featured .section-head p{max-width:850px;line-height:1.75}
+#formacion.education-featured .edu-col{border:1px solid rgba(112,190,255,.22);border-radius:20px;padding:clamp(1rem,2.5vw,1.5rem);background:rgba(10,18,34,.62);box-shadow:0 12px 35px rgba(0,0,0,.12)}
+#formacion.education-featured .edu-title{font-size:1.08rem;color:#76d9ff;font-weight:800;margin-bottom:1rem}
+#formacion.education-featured .edu{padding:1rem 0;border-bottom:1px solid rgba(160,190,220,.13)}
+#formacion.education-featured .edu:last-child{border-bottom:0}
+#formacion.education-featured .edu h3{line-height:1.35}
+@media(max-width:680px){#formacion.education-featured .edu-col{padding:1rem}#formacion.education-featured .edu{padding:.85rem 0}}
+</style>
+\n</head>
 
 <body>
   <div class="progress"><span id="progressBar"></span></div>
@@ -392,7 +409,7 @@
           <div class="hero-card-wrap reveal tilt" id="tiltCard">
             <div class="portrait-shell">
               <div class="portrait-frame">
-                <img src="norberto-perfil.webp" alt="Norberto Manuel Antúnez Núñez, Analista de Datos" loading="eager">
+                <img src="norberto-perfil.jpg" alt="Norberto Manuel Antúnez Núñez, Analista de Datos" loading="eager">
                 <div class="portrait-label">
                   <div>
                     <strong>Norberto Manuel Antúnez Núñez</strong>
@@ -508,6 +525,36 @@
           </article>
         </div>
       </div>
+    </section>\n\n<section id="formacion" class="education-featured">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">03 · Formación académica y especialización</span>
+          <h2>Formación que impulsa mi perfil.</h2>
+          <p>Una base multidisciplinar en empresa, finanzas, contabilidad, prevención, proyectos e inteligencia artificial, reforzada con formación técnica y complementaria.</p>
+        </div>
+
+        <div class="education">
+          <div class="edu-col reveal">
+            <div class="edu-title">◆ Formación académica</div>
+            <div class="edu"><div class="edu-year">2025 – 2026</div><h3>Máster en Inteligencia Artificial Aplicada</h3><p>EBS · Sabal University · DQ Certificated</p></div>
+            <div class="edu"><div class="edu-year">2024 – 2025</div><h3>MBA · Gestión de Proyectos con SAP</h3><p>EFEM · EUNEIZ · Universidad Vitoria-Gasteiz</p></div>
+            <div class="edu"><div class="edu-year">2023 – 2024</div><h3>Máster en Prevención de Riesgos Laborales</h3><p>Universidad Europea Miguel de Cervantes · Seguridad, Higiene, Ergonomía y Psicosociología Aplicada</p></div>
+            <div class="edu"><div class="edu-year">2021 – 2022</div><h3>Máster en Creación de Empresas e Innovación</h3><p>Universidad de Extremadura</p></div>
+            <div class="edu"><div class="edu-year">2020 – 2021</div><h3>Máster en Tributación, Contabilidad y Gestión Financiera</h3><p>Cámara de Comercio de Badajoz</p></div>
+            <div class="edu"><div class="edu-year">2013 – 2017</div><h3>Grado en Administración y Dirección de Empresas</h3><p>Universidad de Extremadura</p></div>
+          </div>
+
+          <div class="edu-col reveal">
+            <div class="edu-title">◇ Especialización</div>
+            <div class="edu"><div class="edu-year">300 HORAS</div><h3>Big Data y Business Analytics</h3><p>Análisis de datos aplicado a la toma de decisiones empresariales.</p></div>
+            <div class="edu"><div class="edu-year">140 HORAS</div><h3>Análisis y Programación en Java</h3><p>Estructura de datos y lógica computacional.</p></div>
+            <div class="edu"><div class="edu-year">100 HORAS</div><h3>Data Mining & Business Intelligence</h3><p>Análisis de información económica y elaboración de informes.</p></div>
+            <div class="edu"><div class="edu-year">60 HORAS</div><h3>ChatGPT y DALL-E</h3><p>Apoyo a tareas administrativas y mejora de productividad.</p></div>
+            <div class="edu"><div class="edu-year">CERTIFICACIONES</div><h3>MOS · Professional SQL Developer · SAP · SAGE · DELSOL</h3><p>Certificaciones, cursos y uso profesional según el área correspondiente.</p></div>
+            <div class="edu"><div class="edu-year">OTROS</div><h3>Inglés B1 · ECTS adicionales</h3><p>Dirección de Ventas I y II · Gestión de la Competencia · Liderazgo Emprendedor · Asesoría Fiscal · ISO 9001-14001.</p></div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="tecnologias">
@@ -587,37 +634,7 @@
       </div>
     </section>
 
-    <section id="formacion">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">06 · Formación</span>
-          <h2>Aprendizaje continuo.</h2>
-          <p>Formación empresarial, financiera, tecnológica y de inteligencia artificial.</p>
-        </div>
-
-        <div class="education">
-          <div class="edu-col reveal">
-            <div class="edu-title">◆ Formación académica</div>
-            <div class="edu"><div class="edu-year">2025 – 2026</div><h3>Máster en Inteligencia Artificial Aplicada</h3><p>EBS · Sabal University · DQ Certificated</p></div>
-            <div class="edu"><div class="edu-year">2024 – 2025</div><h3>MBA · Gestión de Proyectos con SAP</h3><p>EFEM · EUNEIZ · Universidad Vitoria-Gasteiz</p></div>
-            <div class="edu"><div class="edu-year">2023 – 2024</div><h3>Máster en Prevención de Riesgos Laborales</h3><p>Universidad Europea Miguel de Cervantes · Seguridad, Higiene, Ergonomía y Psicosociología Aplicada</p></div>
-            <div class="edu"><div class="edu-year">2021 – 2022</div><h3>Máster en Creación de Empresas e Innovación</h3><p>Universidad de Extremadura</p></div>
-            <div class="edu"><div class="edu-year">2020 – 2021</div><h3>Máster en Tributación, Contabilidad y Gestión Financiera</h3><p>Cámara de Comercio de Badajoz</p></div>
-            <div class="edu"><div class="edu-year">2013 – 2017</div><h3>Grado en Administración y Dirección de Empresas</h3><p>Universidad de Extremadura</p></div>
-          </div>
-
-          <div class="edu-col reveal">
-            <div class="edu-title">◇ Especialización</div>
-            <div class="edu"><div class="edu-year">300 HORAS</div><h3>Big Data y Business Analytics</h3><p>Análisis de datos aplicado a la toma de decisiones empresariales.</p></div>
-            <div class="edu"><div class="edu-year">140 HORAS</div><h3>Análisis y Programación en Java</h3><p>Estructura de datos y lógica computacional.</p></div>
-            <div class="edu"><div class="edu-year">100 HORAS</div><h3>Data Mining & Business Intelligence</h3><p>Análisis de información económica y elaboración de informes.</p></div>
-            <div class="edu"><div class="edu-year">60 HORAS</div><h3>ChatGPT y DALL-E</h3><p>Apoyo a tareas administrativas y mejora de productividad.</p></div>
-            <div class="edu"><div class="edu-year">CERTIFICACIONES</div><h3>MOS · Professional SQL Developer · SAP · SAGE · DELSOL</h3><p>Certificaciones, cursos y uso profesional según el área correspondiente.</p></div>
-            <div class="edu"><div class="edu-year">OTROS</div><h3>Inglés B1 · ECTS adicionales</h3><p>Dirección de Ventas I y II · Gestión de la Competencia · Liderazgo Emprendedor · Asesoría Fiscal · ISO 9001-14001.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
+    
 
     
 <!-- CV DOWNLOAD + PERFIL PROFESIONAL AMPLIADO -->
