@@ -7,13 +7,7 @@
   <meta name="description" content="Portfolio profesional de Norberto Manuel Antúnez Núñez — Analista de Datos, Business Intelligence, Automatización y Compras.">
   <meta name="author" content="Norberto Manuel Antúnez Núñez">
   <title>Norberto Manuel Antúnez Núñez | Data · BI · Automation</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <style>
+<style>
     :root{
       --bg:#060914;
       --bg-2:#0a1020;
@@ -64,22 +58,19 @@
     .progress{position:fixed;top:0;left:0;width:100%;height:3px;z-index:2000;background:transparent}
     .progress span{display:block;width:0;height:100%;background:var(--gradient);box-shadow:0 0 18px rgba(0,229,255,.7)}
 
-    #ambient{
-      position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden;
-    }
-    .orb{position:absolute;border-radius:50%;filter:blur(55px);opacity:.15}
+    #ambient{display:none}
     .orb.one{width:280px;height:280px;background:var(--cyan);left:-100px;top:25%}
     .orb.two{width:330px;height:330px;background:var(--violet);right:-130px;top:55%}
     .orb.three{width:220px;height:220px;background:var(--blue);left:44%;top:5%}
 
     header{
       position:fixed;top:0;left:0;width:100%;height:var(--header);z-index:1000;
-      background:rgba(6,9,20,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+      background:rgba(6,9,20,.72);background:rgba(6,9,20,.94);
       border-bottom:1px solid transparent;transition:.35s ease;
     }
     header.scrolled{border-color:var(--line);background:rgba(6,9,20,.91);box-shadow:0 10px 40px rgba(0,0,0,.18)}
     nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .logo{font-family:"Space Grotesk",sans-serif;font-weight:800;letter-spacing:-.04em;display:flex;align-items:center;gap:9px;white-space:nowrap}
+    .logo{font-family:Inter,system-ui,sans-serif;font-weight:800;letter-spacing:-.04em;display:flex;align-items:center;gap:9px;white-space:nowrap}
     .logo-mark{width:34px;height:34px;border-radius:11px;background:var(--gradient);display:grid;place-items:center;color:#03101a;font-weight:900;box-shadow:0 0 28px rgba(0,229,255,.2)}
     .logo span{color:var(--cyan)}
     .nav-links{display:flex;align-items:center;gap:5px;list-style:none}
@@ -98,11 +89,11 @@
     section{padding:110px 0;border-bottom:1px solid var(--line)}
     .section-head{max-width:760px;margin:0 auto 52px;text-align:center}
     .eyebrow{
-      display:inline-flex;align-items:center;gap:8px;color:var(--cyan);font-family:"Fira Code",monospace;
+      display:inline-flex;align-items:center;gap:8px;color:var(--cyan);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
       text-transform:uppercase;letter-spacing:.11em;font-size:.72rem;font-weight:600;margin-bottom:12px
     }
     .eyebrow::before{content:"";width:25px;height:1px;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
-    .section-head h2{font:700 clamp(2rem,4vw,3rem)/1.05 "Space Grotesk",sans-serif;letter-spacing:-.045em}
+    .section-head h2{font:700 clamp(2rem,4vw,3rem)/1.05 Inter,system-ui,sans-serif;letter-spacing:-.045em}
     .section-head p{color:var(--muted);margin-top:14px;max-width:650px;margin-inline:auto}
 
     #hero{min-height:100svh;padding:140px 0 80px;display:grid;align-items:center;border:0;position:relative}
@@ -110,7 +101,7 @@
     .availability{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(38,230,166,.22);background:rgba(38,230,166,.06);padding:7px 12px;border-radius:999px;color:#aaf8df;font-size:.74rem;font-weight:700;margin-bottom:23px}
     .pulse{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(38,230,166,.6);animation:pulse 2s infinite}
     @keyframes pulse{70%{box-shadow:0 0 0 9px rgba(38,230,166,0)}100%{box-shadow:0 0 0 0 rgba(38,230,166,0)}}
-    .hero h1{font:800 clamp(3rem,7vw,6.6rem)/.92 "Space Grotesk",sans-serif;letter-spacing:-.065em;max-width:920px}
+    .hero h1{font:800 clamp(3rem,7vw,6.6rem)/.92 Inter,system-ui,sans-serif;letter-spacing:-.065em;max-width:920px}
     .hero h1 .gradient{display:inline-block;background:var(--gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
     .hero-sub{font-size:clamp(1rem,1.7vw,1.28rem);color:#b7c2d4;max-width:780px;margin:25px 0 24px}
     .hero-sub strong{color:#fff}
@@ -131,12 +122,12 @@
     .profile-card{
       width:min(100%,410px);position:relative;z-index:2;padding:30px;border-radius:28px;
       background:linear-gradient(145deg,rgba(18,28,47,.92),rgba(9,15,29,.86));border:1px solid rgba(255,255,255,.11);
-      box-shadow:var(--shadow),0 0 80px rgba(0,229,255,.07);backdrop-filter:blur(20px);overflow:hidden;
+      box-shadow:var(--shadow),0 0 80px rgba(0,229,255,.07);overflow:hidden;
     }
-    .profile-card::before{content:"";position:absolute;inset:-2px;background:conic-gradient(from 180deg,transparent 0 30%,rgba(0,229,255,.5),transparent 42% 68%,rgba(155,108,255,.45),transparent 80%);opacity:.28;z-index:-1;animation:spin 9s linear infinite}
+    .profile-card::before{content:"";position:absolute;inset:-2px;background:linear-gradient(135deg,rgba(0,229,255,.20),transparent 38%,rgba(155,108,255,.16));opacity:.28;z-index:-1}
     .profile-top{display:flex;align-items:center;gap:16px;margin-bottom:25px}
-    .avatar{width:58px;height:58px;border-radius:18px;background:var(--gradient);display:grid;place-items:center;color:#03101a;font:900 1.1rem "Space Grotesk",sans-serif;box-shadow:0 10px 30px rgba(0,229,255,.2)}
-    .profile-name{font:700 1.03rem "Space Grotesk",sans-serif}
+    .avatar{width:58px;height:58px;border-radius:18px;background:var(--gradient);display:grid;place-items:center;color:#03101a;font:900 1.1rem Inter,system-ui,sans-serif;box-shadow:0 10px 30px rgba(0,229,255,.2)}
+    .profile-name{font:700 1.03rem Inter,system-ui,sans-serif}
     .profile-role{color:var(--cyan);font-size:.73rem;margin-top:2px}
     .signal{display:flex;align-items:flex-end;gap:4px;height:70px;padding:13px 0;margin:10px 0 20px;border-block:1px solid var(--line)}
     .signal i{display:block;flex:1;min-width:4px;border-radius:4px 4px 1px 1px;background:linear-gradient(to top,var(--cyan),var(--violet));opacity:.75;animation:bars 1.4s ease-in-out infinite alternate}
@@ -212,8 +203,7 @@
 
     #contact{border-bottom:0;padding-bottom:60px}
     .contact-card{position:relative;overflow:hidden;text-align:center;padding:65px 30px;border:1px solid rgba(0,229,255,.16);border-radius:30px;background:radial-gradient(circle at 50% 0,rgba(0,229,255,.09),transparent 45%),linear-gradient(145deg,rgba(17,28,48,.9),rgba(7,12,23,.9));box-shadow:var(--shadow)}
-    .contact-card::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,.035),transparent);transform:translateX(-100%);animation:sheen 7s ease-in-out infinite}
-    @keyframes sheen{15%,100%{transform:translateX(100%)}}
+    .contact-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0,rgba(255,255,255,.035),transparent 45%);pointer-events:none}
     .contact-card h2{font:800 clamp(2.2rem,5vw,4rem)/1 "Space Grotesk";letter-spacing:-.055em}
     .contact-card h2 span{background:var(--gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
     .contact-card p{max-width:680px;color:var(--muted);margin:15px auto 28px}
@@ -240,7 +230,7 @@
       .nav-cta{display:none}.menu-btn{display:grid;place-items:center}
       .nav-links{
         position:fixed;left:14px;right:14px;top:78px;display:flex;flex-direction:column;align-items:stretch;gap:3px;
-        padding:10px;border:1px solid var(--line);border-radius:18px;background:rgba(7,12,23,.96);backdrop-filter:blur(20px);
+        padding:10px;border:1px solid var(--line);border-radius:18px;background:rgba(7,12,23,.96);
         box-shadow:0 25px 60px rgba(0,0,0,.45);opacity:0;pointer-events:none;transform:translateY(-8px);transition:.25s
       }
       .nav-links.open{opacity:1;pointer-events:auto;transform:none}
@@ -280,25 +270,54 @@
     .portrait-shell::after{inset:22px;background:radial-gradient(circle at 20% 20%,rgba(0,229,255,.18),transparent 34%),radial-gradient(circle at 90% 90%,rgba(155,108,255,.16),transparent 38%);mix-blend-mode:screen}
     .portrait-frame{position:relative;z-index:2;padding:5px;border-radius:30px;background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.035));box-shadow:0 28px 80px rgba(0,0,0,.45),0 0 60px rgba(0,229,255,.08)}
     .portrait-frame img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 22%;border-radius:26px;filter:saturate(.94) contrast(1.04)}
-    .portrait-label{position:absolute;z-index:4;left:28px;right:28px;bottom:27px;padding:13px 15px;border:1px solid rgba(255,255,255,.13);border-radius:15px;background:rgba(5,9,20,.72);backdrop-filter:blur(15px);display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .portrait-label{position:absolute;z-index:4;left:28px;right:28px;bottom:27px;padding:13px 15px;border:1px solid rgba(255,255,255,.13);border-radius:15px;background:rgba(5,9,20,.72);display:flex;align-items:center;justify-content:space-between;gap:12px}
     .portrait-label strong{font:700 .86rem "Space Grotesk"}.portrait-label small{display:block;color:#9eabc0;font-size:.65rem;margin-top:2px}
     .portrait-dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 16px rgba(38,230,166,.8);flex:none}
     .hero-kicker{display:flex;align-items:center;gap:8px;margin-top:19px;color:#7f8da4;font:500 .68rem "Fira Code";letter-spacing:.04em}
     .hero-kicker i{color:var(--cyan)}
     .executive-btn{cursor:pointer;border:0}
-    .modal{position:fixed;inset:0;z-index:3000;display:grid;place-items:center;padding:20px;background:rgba(2,5,12,.76);backdrop-filter:blur(12px);opacity:0;pointer-events:none;transition:.25s}
+    .modal{position:fixed;inset:0;z-index:3000;display:grid;place-items:center;padding:20px;background:rgba(2,5,12,.76);opacity:0;pointer-events:none;transition:.25s}
     .modal.open{opacity:1;pointer-events:auto}
     .modal-card{width:min(720px,100%);max-height:min(760px,90vh);overflow:auto;border:1px solid rgba(0,229,255,.18);border-radius:25px;background:linear-gradient(145deg,#111b2d,#080d18);box-shadow:0 30px 100px rgba(0,0,0,.55);padding:30px;position:relative}
     .modal-close{position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:11px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:#fff;cursor:pointer}
     .modal-card h3{font:800 1.7rem "Space Grotesk";margin:8px 0}.modal-card p{color:var(--muted);font-size:.86rem;margin:10px 0}
     .modal-points{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}.modal-point{padding:15px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.025)}.modal-point b{display:block;font-size:.82rem;margin-bottom:4px}.modal-point span{color:var(--dim);font-size:.7rem}
     .quick-nav{position:fixed;right:18px;bottom:18px;z-index:900;display:flex;flex-direction:column;gap:8px}
-    .quick-nav button{width:43px;height:43px;border-radius:14px;border:1px solid var(--line);background:rgba(8,14,26,.82);color:#aab7ca;cursor:pointer;backdrop-filter:blur(12px);transition:.25s}
+    .quick-nav button{width:43px;height:43px;border-radius:14px;border:1px solid var(--line);background:rgba(8,14,26,.82);color:#aab7ca;cursor:pointer;transition:.25s}
     .quick-nav button:hover{color:var(--cyan);border-color:rgba(0,229,255,.35);transform:translateY(-2px)}
     @media(max-width:800px){.portrait-shell{width:min(100%,360px)}.modal-points{grid-template-columns:1fr}.quick-nav{right:12px;bottom:12px}}
     @media(prefers-reduced-motion:reduce){.portrait-shell::before{animation:none}}
 
+  
+    /* Performance layer: keep the visual identity while reducing expensive paint work. */
+    main section{content-visibility:auto;contain-intrinsic-size:760px}
+    .timeline-card,.tech-card,.skill,.cap,.btn-primary,.btn-secondary,.contact-link{will-change:auto}
+    img{max-width:100%;height:auto}
+    .cv-download{display:inline-flex;align-items:center;gap:9px;margin-top:12px;color:#9eefff;font-size:.75rem;font-weight:700}
+    .cv-download:hover{color:#fff}
+    .impact-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:32px;max-width:820px}
+    .impact-item{padding:13px 14px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025)}
+    .impact-item b{display:block;font-size:.76rem;color:#fff;margin-bottom:2px}
+    .impact-item span{font-size:.66rem;color:var(--dim)}
+    .recruiter-panel{margin-top:24px;padding:17px 18px;border:1px solid rgba(0,229,255,.14);border-radius:18px;background:linear-gradient(110deg,rgba(0,229,255,.055),rgba(155,108,255,.04));}
+    .recruiter-panel strong{font-size:.78rem}.recruiter-panel p{margin-top:4px;color:var(--muted);font-size:.72rem}
+    @media(max-width:800px){
+      .impact-strip{grid-template-columns:repeat(2,1fr)}
+      .hero-card-wrap::before,.hero-card-wrap::after{display:none}
+    }
+    @media(max-width:480px){
+      .impact-strip{grid-template-columns:1fr 1fr}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .pulse{animation:none}
+    }
+
   </style>
+
+<style>
+#perfil-ampliado{padding:clamp(3rem,7vw,6rem) 1.25rem}#perfil-ampliado .section-inner{max-width:1120px;margin:auto}#perfil-ampliado .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1rem;margin-top:2rem}#perfil-ampliado .skill-card{padding:1.35rem;border:1px solid rgba(120,190,220,.22);border-radius:18px;background:rgba(20,30,48,.55)}#perfil-ampliado .skill-card h3{margin:0 0 .7rem}#perfil-ampliado .skill-card p{line-height:1.65;margin:0}#perfil-ampliado .eyebrow{letter-spacing:.16em;font-size:.75rem;font-weight:700;color:#65d9ef}
+</style>
+
 </head>
 
 <body>
@@ -324,7 +343,7 @@
           <li><a href="#formacion">Formación</a></li>
         </ul>
 
-        <a class="nav-cta" href="#contacto"><i class="fa-solid fa-paper-plane"></i> Contactar</a>
+        <a class="nav-cta" href="#contacto">➜ Contactar</a>
         <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menú" aria-expanded="false">
           <i class="fa-solid fa-bars"></i>
         </button>
@@ -345,24 +364,35 @@
             </p>
 
             <div class="hero-actions">
-              <a class="btn-primary" href="#experiencia"><i class="fa-solid fa-arrow-down"></i> Explorar trayectoria</a>
-              <a class="btn-secondary" href="https://www.linkedin.com/in/norberto2026" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-              <button class="btn-secondary executive-btn" id="openExecutive" type="button"><i class="fa-solid fa-sparkles"></i> Resumen ejecutivo</button>
+              <a class="btn-primary" href="#experiencia">↓ Explorar trayectoria</a>
+              <a class="btn-secondary" href="https://www.linkedin.com/in/norberto2026" target="_blank" rel="noopener noreferrer">in LinkedIn</a>
+              <button class="btn-secondary executive-btn" id="openExecutive" type="button">✦ Resumen ejecutivo</button>
             </div>
 
-            <div class="hero-kicker"><i class="fa-solid fa-circle-nodes"></i> Negocio → Datos → Insight → Decisión → Automatización</div>
+            <div class="hero-kicker">◉ Negocio → Datos → Insight → Decisión → Automatización</div>
 
             <div class="hero-meta">
-              <span><i class="fa-solid fa-location-dot"></i> Badajoz, España</span>
-              <span><i class="fa-solid fa-chart-line"></i> Data & Business Intelligence</span>
-              <span><i class="fa-solid fa-gear"></i> Automatización de procesos</span>
+              <span>⌖ Badajoz, España</span>
+              <span>◈ Data & Business Intelligence</span>
+              <span>⚙ Automatización de procesos</span>
             </div>
+            <div class="impact-strip" aria-label="Áreas de valor profesional">
+              <div class="impact-item"><b>Datos</b><span>Transformación · análisis · reporting</span></div>
+              <div class="impact-item"><b>Compras</b><span>Proveedores · competencia · stock</span></div>
+              <div class="impact-item"><b>Automatización</b><span>Power Automate · n8n · VBA</span></div>
+              <div class="impact-item"><b>Dirección</b><span>KPIs · análisis · decisión</span></div>
+            </div>
+            <div class="recruiter-panel">
+              <strong>PERFIL HÍBRIDO · NEGOCIO + DATOS + TECNOLOGÍA</strong>
+              <p>Capaz de conectar necesidades empresariales con análisis, herramientas y automatizaciones orientadas a la acción.</p>
+            </div>
+            <a class="cv-download" href="Norberto-Antunez-CV-2026.pdf" target="_blank" rel="noopener">▣ Descargar CV en PDF</a>
           </div>
 
           <div class="hero-card-wrap reveal tilt" id="tiltCard">
             <div class="portrait-shell">
               <div class="portrait-frame">
-                <img src="norberto-perfil.jpg" alt="Norberto Manuel Antúnez Núñez, Analista de Datos" loading="eager">
+                <img src="norberto-perfil.webp" alt="Norberto Manuel Antúnez Núñez, Analista de Datos" loading="eager">
                 <div class="portrait-label">
                   <div>
                     <strong>Norberto Manuel Antúnez Núñez</strong>
@@ -424,7 +454,7 @@
             <div class="timeline-card">
               <div class="date">2022 – 2025</div>
               <h3>Controller de Gestión</h3>
-              <div class="company"><i class="fa-solid fa-flask"></i><span>BAFICOM · Parque Científico y Tecnológico de la Universidad de Extremadura · Badajoz</span></div>
+              <div class="company">◆<span>BAFICOM · Parque Científico y Tecnológico de la Universidad de Extremadura · Badajoz</span></div>
               <ul>
                 <li>Contabilidad, control de operaciones y gestión financiera con Dynamics NAV.</li>
                 <li>Control documental PRL/CAE mediante plataformas y SharePoint.</li>
@@ -441,7 +471,7 @@
             <div class="timeline-card">
               <div class="date">2022</div>
               <h3>Jefe de Administración</h3>
-              <div class="company"><i class="fa-solid fa-briefcase"></i><span>MOGUER PROYECTOS Y GESTIÓN EMPRESARIAL · Badajoz</span></div>
+              <div class="company">▣<span>MOGUER PROYECTOS Y GESTIÓN EMPRESARIAL · Badajoz</span></div>
               <ul>
                 <li>Gestión PRL/CAE y apoyo SPA en el ámbito de la Central Nuclear de Almaraz-Trillo.</li>
                 <li>Ajustes contables, gestión de proveedores y apoyo a RRHH.</li>
@@ -456,7 +486,7 @@
             <div class="timeline-card">
               <div class="date">2021 – 2022</div>
               <h3>Cajero de Banca</h3>
-              <div class="company"><i class="fa-solid fa-building-columns"></i><span>BANCO SANTANDER · Sucursales de Badajoz y Olivenza</span></div>
+              <div class="company">▤<span>BANCO SANTANDER · Sucursales de Badajoz y Olivenza</span></div>
               <ul>
                 <li>Arqueos y movimientos de caja, transacciones bancarias y control de operaciones.</li>
                 <li>Gestión de flujos de efectivo, cajeros ATM, depósitos y recibos.</li>
@@ -470,7 +500,7 @@
             <div class="timeline-card">
               <div class="date">2018 – 2020</div>
               <h3>Atención al Cliente · Soporte Técnico</h3>
-              <div class="company"><i class="fa-solid fa-headset"></i><span>GSS COVISIAN GROUP · Badajoz / MARKTEL · Elvas, Portugal</span></div>
+              <div class="company">◉<span>GSS COVISIAN GROUP · Badajoz / MARKTEL · Elvas, Portugal</span></div>
               <ul>
                 <li>Atención al cliente, telemarketing y soporte técnico, desarrollando comunicación, resolución de incidencias y orientación al usuario.</li>
               </ul>
@@ -496,12 +526,12 @@
           </div>
 
           <div class="tech-cards">
-            <article class="tech-card reveal"><div class="tech-card-head"><i class="fa-solid fa-chart-pie"></i><h3>Data & Business Intelligence</h3></div><div class="tags"><span>Power BI</span><span>Power Query</span><span>Power Pivot</span><span>Qlik</span><span>SQL</span><span>Tableau</span><span>Excel</span></div></article>
-            <article class="tech-card reveal"><div class="tech-card-head"><i class="fa-solid fa-gears"></i><h3>Automatización</h3></div><div class="tags"><span>Power Automate</span><span>n8n</span><span>VBA</span><span>Zapier</span><span>Make</span></div></article>
-            <article class="tech-card reveal"><div class="tech-card-head"><i class="fa-solid fa-code"></i><h3>Programación & Entornos</h3></div><div class="tags"><span>Python</span><span>JavaScript</span><span>CSS</span><span>Java</span><span>VS Code</span><span>Firebase</span></div></article>
-            <article class="tech-card reveal"><div class="tech-card-head"><i class="fa-solid fa-server"></i><h3>ERP & Sistemas</h3></div><div class="tags"><span>Go! Manage · Telematel</span><span>Dynamics NAV</span><span>SAP</span><span>SAGE</span><span>DELSOL</span></div></article>
-            <article class="tech-card reveal"><div class="tech-card-head"><i class="fa-solid fa-brain"></i><h3>IA & Productividad</h3></div><div class="tags"><span>ChatGPT</span><span>DALL-E</span><span>Microsoft 365</span><span>Canva</span><span>SharePoint</span></div></article>
-            <article class="tech-card reveal"><div class="tech-card-head"><i class="fa-solid fa-file-excel"></i><h3>Reporting & Office</h3></div><div class="tags"><span>Microsoft Office Specialist</span><span>Excel avanzado</span><span>Reporting</span><span>Modelado analítico</span></div></article>
+            <article class="tech-card reveal"><div class="tech-card-head">◈<h3>Data & Business Intelligence</h3></div><div class="tags"><span>Power BI</span><span>Power Query</span><span>Power Pivot</span><span>Qlik</span><span>SQL</span><span>Tableau</span><span>Excel</span></div></article>
+            <article class="tech-card reveal"><div class="tech-card-head">⚙<h3>Automatización</h3></div><div class="tags"><span>Power Automate</span><span>n8n</span><span>VBA</span><span>Zapier</span><span>Make</span></div></article>
+            <article class="tech-card reveal"><div class="tech-card-head"><><h3>Programación & Entornos</h3></div><div class="tags"><span>Python</span><span>JavaScript</span><span>CSS</span><span>Java</span><span>VS Code</span><span>Firebase</span></div></article>
+            <article class="tech-card reveal"><div class="tech-card-head">▦<h3>ERP & Sistemas</h3></div><div class="tags"><span>Go! Manage · Telematel</span><span>Dynamics NAV</span><span>SAP</span><span>SAGE</span><span>DELSOL</span></div></article>
+            <article class="tech-card reveal"><div class="tech-card-head">✦<h3>IA & Productividad</h3></div><div class="tags"><span>ChatGPT</span><span>DALL-E</span><span>Microsoft 365</span><span>Canva</span><span>SharePoint</span></div></article>
+            <article class="tech-card reveal"><div class="tech-card-head">▤<h3>Reporting & Office</h3></div><div class="tags"><span>Microsoft Office Specialist</span><span>Excel avanzado</span><span>Reporting</span><span>Modelado analítico</span></div></article>
           </div>
         </div>
       </div>
@@ -516,12 +546,12 @@
         </div>
 
         <div class="skills">
-          <article class="skill reveal"><i class="fa-solid fa-chart-line"></i><h3>Analítica de Datos & Reporting</h3><p>Transformación ETL, análisis, reporting y dashboards orientados a negocio.</p></article>
-          <article class="skill reveal"><i class="fa-solid fa-cart-shopping"></i><h3>Compras & Proveedores</h3><p>Evaluación de compras, proveedores, productos equivalentes y competencia.</p></article>
-          <article class="skill reveal"><i class="fa-solid fa-boxes-stacked"></i><h3>Stocks, Márgenes & Ventas</h3><p>Lectura de inventarios, márgenes, ventas y comportamiento comercial.</p></article>
-          <article class="skill reveal"><i class="fa-solid fa-diagram-project"></i><h3>Automatización</h3><p>Power Automate, n8n y VBA para optimizar procesos recurrentes.</p></article>
-          <article class="skill reveal"><i class="fa-solid fa-chess"></i><h3>Apoyo a Dirección</h3><p>KPIs y analíticas para planificación estratégica y toma de decisiones.</p></article>
-          <article class="skill reveal"><i class="fa-solid fa-users"></i><h3>Competencias Personales</h3><p>Trabajo en equipo, creatividad, comunicación, liderazgo, adaptación, pensamiento crítico y proactividad.</p></article>
+          <article class="skill reveal">↗<h3>Analítica de Datos & Reporting</h3><p>Transformación ETL, análisis, reporting y dashboards orientados a negocio.</p></article>
+          <article class="skill reveal">◫<h3>Compras & Proveedores</h3><p>Evaluación de compras, proveedores, productos equivalentes y competencia.</p></article>
+          <article class="skill reveal">▥<h3>Stocks, Márgenes & Ventas</h3><p>Lectura de inventarios, márgenes, ventas y comportamiento comercial.</p></article>
+          <article class="skill reveal">⌘<h3>Automatización</h3><p>Power Automate, n8n y VBA para optimizar procesos recurrentes.</p></article>
+          <article class="skill reveal">◇<h3>Apoyo a Dirección</h3><p>KPIs y analíticas para planificación estratégica y toma de decisiones.</p></article>
+          <article class="skill reveal">◎<h3>Competencias Personales</h3><p>Trabajo en equipo, creatividad, comunicación, liderazgo, adaptación, pensamiento crítico y proactividad.</p></article>
         </div>
       </div>
     </section>
@@ -536,19 +566,19 @@
 
         <div class="cap-grid">
           <article class="cap reveal">
-            <div class="cap-num">01 · DATA / BI</div><div class="cap-icon"><i class="fa-solid fa-chart-area"></i></div>
+            <div class="cap-num">01 · DATA / BI</div><div class="cap-icon">◒</div>
             <h3>Dashboards y modelado analítico</h3>
             <p>Cuadros de mando e informes con Power BI y Qlik, apoyados en Power Query, para supervisar ventas, stocks, márgenes y otros indicadores de negocio.</p>
             <div class="line"></div>
           </article>
           <article class="cap reveal">
-            <div class="cap-num">02 · AUTOMATION</div><div class="cap-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <div class="cap-num">02 · AUTOMATION</div><div class="cap-icon">✦</div>
             <h3>Workflows inteligentes</h3>
             <p>Diseño de automatizaciones con Power Automate, n8n y VBA para reducir trabajo manual y mejorar la continuidad de procesos recurrentes.</p>
             <div class="line"></div>
           </article>
           <article class="cap reveal">
-            <div class="cap-num">03 · PROCUREMENT</div><div class="cap-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+            <div class="cap-num">03 · PROCUREMENT</div><div class="cap-icon">⌕</div>
             <h3>Compras y comportamiento comercial</h3>
             <p>Análisis de proveedores, equivalencias, competencia, stock, márgenes, ventas y patrones de clientes mediante datos del ERP y otras fuentes.</p>
             <div class="line"></div>
@@ -567,7 +597,7 @@
 
         <div class="education">
           <div class="edu-col reveal">
-            <div class="edu-title"><i class="fa-solid fa-graduation-cap"></i> Formación académica</div>
+            <div class="edu-title">◆ Formación académica</div>
             <div class="edu"><div class="edu-year">2025 – 2026</div><h3>Máster en Inteligencia Artificial Aplicada</h3><p>EBS · Sabal University · DQ Certificated</p></div>
             <div class="edu"><div class="edu-year">2024 – 2025</div><h3>MBA · Gestión de Proyectos con SAP</h3><p>EFEM · EUNEIZ · Universidad Vitoria-Gasteiz</p></div>
             <div class="edu"><div class="edu-year">2023 – 2024</div><h3>Máster en Prevención de Riesgos Laborales</h3><p>Universidad Europea Miguel de Cervantes · Seguridad, Higiene, Ergonomía y Psicosociología Aplicada</p></div>
@@ -577,7 +607,7 @@
           </div>
 
           <div class="edu-col reveal">
-            <div class="edu-title"><i class="fa-solid fa-certificate"></i> Especialización</div>
+            <div class="edu-title">◇ Especialización</div>
             <div class="edu"><div class="edu-year">300 HORAS</div><h3>Big Data y Business Analytics</h3><p>Análisis de datos aplicado a la toma de decisiones empresariales.</p></div>
             <div class="edu"><div class="edu-year">140 HORAS</div><h3>Análisis y Programación en Java</h3><p>Estructura de datos y lógica computacional.</p></div>
             <div class="edu"><div class="edu-year">100 HORAS</div><h3>Data Mining & Business Intelligence</h3><p>Análisis de información económica y elaboración de informes.</p></div>
@@ -596,10 +626,10 @@
           <h2>Hablemos de <span>datos.</span></h2>
           <p>Si buscas un perfil capaz de entender el negocio, trabajar con datos y convertir la información en herramientas para decidir, podemos conectar.</p>
           <div class="contact-links">
-            <a class="contact-link" href="mailto:nantunezn@gmail.com"><i class="fa-solid fa-envelope"></i> nantunezn@gmail.com</a>
-            <a class="contact-link" href="tel:+34655314020"><i class="fa-solid fa-phone"></i> +34 655 31 40 20</a>
-            <a class="contact-link" href="https://www.linkedin.com/in/norberto2026" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-            <span class="contact-link"><i class="fa-solid fa-location-dot"></i> Badajoz, España</span>
+            <a class="contact-link" href="mailto:nantunezn@gmail.com">✉ nantunezn@gmail.com</a>
+            <a class="contact-link" href="tel:+34655314020">☎ +34 655 31 40 20</a>
+            <a class="contact-link" href="https://www.linkedin.com/in/norberto2026" target="_blank" rel="noopener noreferrer">in LinkedIn</a>
+            <span class="contact-link">⌖ Badajoz, España</span>
           </div>
         </div>
       </div>
@@ -613,105 +643,14 @@
     </div>
   </footer>
 
-  <script>
-    (() => {
-      const header = document.getElementById('siteHeader');
-      const progress = document.getElementById('progressBar');
-      const menuBtn = document.getElementById('menuBtn');
-      const navLinks = document.getElementById('navLinks');
-      const navAnchors = [...document.querySelectorAll('.nav-links a')];
-      const sections = [...document.querySelectorAll('main section[id]')];
-
-      const onScroll = () => {
-        const y = window.scrollY;
-        header.classList.toggle('scrolled', y > 20);
-        const max = document.documentElement.scrollHeight - window.innerHeight;
-        progress.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
-
-        let current = 'inicio';
-        sections.forEach(section => {
-          if (y + 150 >= section.offsetTop) current = section.id;
-        });
-        navAnchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
-      };
-
-      window.addEventListener('scroll', onScroll, {passive:true});
-      onScroll();
-
-      const closeMenu = () => {
-        navLinks.classList.remove('open');
-        menuBtn.setAttribute('aria-expanded','false');
-        menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
-      };
-
-      menuBtn.addEventListener('click', () => {
-        const open = navLinks.classList.toggle('open');
-        menuBtn.setAttribute('aria-expanded', String(open));
-        menuBtn.innerHTML = open
-          ? '<i class="fa-solid fa-xmark"></i>'
-          : '<i class="fa-solid fa-bars"></i>';
-      });
-
-      navAnchors.forEach(a => a.addEventListener('click', closeMenu));
-      window.addEventListener('resize', () => { if (window.innerWidth > 800) closeMenu(); });
-
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
-
-      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-
-      const modal = document.getElementById('executiveModal');
-      const openExecutive = document.getElementById('openExecutive');
-      const closeExecutive = document.getElementById('closeExecutive');
-      const modalExperience = document.getElementById('modalExperience');
-      const toTop = document.getElementById('toTop');
-      const toContact = document.getElementById('toContact');
-
-      const setModal = (open) => {
-        if (!modal) return;
-        modal.classList.toggle('open', open);
-        document.body.style.overflow = open ? 'hidden' : '';
-        if (open) closeExecutive?.focus();
-      };
-
-      openExecutive?.addEventListener('click', () => setModal(true));
-      closeExecutive?.addEventListener('click', () => setModal(false));
-      modal?.addEventListener('click', e => { if (e.target === modal) setModal(false); });
-      modalExperience?.addEventListener('click', () => setModal(false));
-      document.addEventListener('keydown', e => { if (e.key === 'Escape') setModal(false); });
-
-      toTop?.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
-      toContact?.addEventListener('click', () => document.getElementById('contacto')?.scrollIntoView({behavior:'smooth'}));
-
-      // Micro-interacción premium en escritorio: inclinación suave de la tarjeta principal.
-      const card = document.getElementById('tiltCard');
-      if (card && window.matchMedia('(pointer:fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        card.addEventListener('mousemove', e => {
-          const r = card.getBoundingClientRect();
-          const x = (e.clientX - r.left) / r.width - .5;
-          const y = (e.clientY - r.top) / r.height - .5;
-          card.style.transform = `perspective(900px) rotateY(${x * 5}deg) rotateX(${y * -5}deg)`;
-        });
-        card.addEventListener('mouseleave', () => card.style.transform = '');
-      }
-    })();
-  </script>
 
   <div class="quick-nav" aria-label="Accesos rápidos">
-    <button type="button" id="toTop" aria-label="Volver arriba"><i class="fa-solid fa-arrow-up"></i></button>
-    <button type="button" id="toContact" aria-label="Ir a contacto"><i class="fa-solid fa-paper-plane"></i></button>
+    <button type="button" id="toTop" aria-label="Volver arriba">↑</button>
+    <button type="button" id="toContact" aria-label="Ir a contacto">➜</button>
   </div>
-
   <div class="modal" id="executiveModal" role="dialog" aria-modal="true" aria-labelledby="executiveTitle">
     <div class="modal-card">
-      <button class="modal-close" id="closeExecutive" type="button" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+      <button class="modal-close" id="closeExecutive" type="button" aria-label="Cerrar">×</button>
       <span class="eyebrow">Resumen ejecutivo</span>
       <h3 id="executiveTitle">Un perfil híbrido orientado a negocio.</h3>
       <p>Administración, control de gestión, analítica de datos, Business Intelligence, Compras y automatización convergen en un mismo enfoque: transformar información empresarial en conocimiento útil para la decisión.</p>
@@ -722,11 +661,153 @@
         <div class="modal-point"><b>Tecnología aplicada</b><span>Python · JavaScript · CSS · Firebase · VS Code</span></div>
       </div>
       <div class="hero-actions" style="margin-top:22px">
-        <a class="btn-primary" href="#experiencia" id="modalExperience"><i class="fa-solid fa-chart-line"></i> Ver experiencia</a>
-        <a class="btn-secondary" href="mailto:nantunezn@gmail.com"><i class="fa-solid fa-envelope"></i> Contactar</a>
+        <a class="btn-primary" href="#experiencia" id="modalExperience">↓ Ver experiencia</a>
+        <a class="btn-secondary" href="mailto:nantunezn@gmail.com">✉ Contactar</a>
       </div>
     </div>
   </div>
+  <script>
+    (() => {
+      const header = document.getElementById('siteHeader');
+      const progress = document.getElementById('progressBar');
+      const menuBtn = document.getElementById('menuBtn');
+      const navLinks = document.getElementById('navLinks');
+      const navAnchors = [...document.querySelectorAll('.nav-links a')];
+      const sections = [...document.querySelectorAll('main section[id]')];
+      const modal = document.getElementById('executiveModal');
+      const openExecutive = document.getElementById('openExecutive');
+      const closeExecutive = document.getElementById('closeExecutive');
+      const modalExperience = document.getElementById('modalExperience');
+      const toTop = document.getElementById('toTop');
+      const toContact = document.getElementById('toContact');
+
+      let ticking = false;
+
+      const updateScrollUI = () => {
+        const y = window.scrollY;
+        header?.classList.toggle('scrolled', y > 20);
+        if (progress) {
+          const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+          progress.style.width = `${Math.min(100, Math.max(0, y / max * 100))}%`;
+        }
+        ticking = false;
+      };
+
+      const requestScrollUpdate = () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(updateScrollUI);
+        }
+      };
+      window.addEventListener('scroll', requestScrollUpdate, {passive:true});
+      updateScrollUI();
+
+      const closeMenu = () => {
+        navLinks?.classList.remove('open');
+        menuBtn?.setAttribute('aria-expanded','false');
+        if (menuBtn) menuBtn.textContent = '☰';
+      };
+
+      menuBtn?.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        menuBtn.setAttribute('aria-expanded', String(open));
+        menuBtn.textContent = open ? '×' : '☰';
+      });
+
+      navAnchors.forEach(a => a.addEventListener('click', closeMenu));
+      window.addEventListener('resize', () => { if (window.innerWidth > 800) closeMenu(); }, {passive:true});
+
+      // Active navigation without measuring every section on every scroll.
+      const sectionObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navAnchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${entry.target.id}`));
+          }
+        });
+      }, {rootMargin:'-30% 0px -55% 0px', threshold:0});
+      sections.forEach(section => sectionObserver.observe(section));
+
+      const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, {threshold:.08, rootMargin:'0px 0px -30px 0px'});
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+      const setModal = open => {
+        if (!modal) return;
+        modal.classList.toggle('open', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+        if (open) closeExecutive?.focus();
+      };
+      openExecutive?.addEventListener('click', () => setModal(true));
+      closeExecutive?.addEventListener('click', () => setModal(false));
+      modal?.addEventListener('click', e => { if (e.target === modal) setModal(false); });
+      modalExperience?.addEventListener('click', () => setModal(false));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') setModal(false); });
+
+      toTop?.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+      toContact?.addEventListener('click', () => document.getElementById('contacto')?.scrollIntoView({behavior:'smooth'}));
+
+      // Lightweight desktop tilt; disabled on touch and small screens.
+      const card = document.getElementById('tiltCard');
+      const finePointer = window.matchMedia('(pointer:fine)').matches;
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (card && finePointer && !reducedMotion && window.innerWidth > 900) {
+        let raf = 0;
+        card.addEventListener('pointermove', e => {
+          if (raf) return;
+          raf = requestAnimationFrame(() => {
+            const r = card.getBoundingClientRect();
+            const x = (e.clientX - r.left) / r.width - .5;
+            const y = (e.clientY - r.top) / r.height - .5;
+            card.style.transform = `perspective(900px) rotateY(${x * 3}deg) rotateX(${y * -3}deg)`;
+            raf = 0;
+          });
+        }, {passive:true});
+        card.addEventListener('pointerleave', () => { card.style.transform = ''; });
+      }
+    })();
+  </script>
+
+<div class="modal" id="executiveModal" role="dialog" aria-modal="true" aria-labelledby="executiveTitle">
+    <div class="modal-card">
+      <button class="modal-close" id="closeExecutive" type="button" aria-label="Cerrar">×</button>
+      <span class="eyebrow">Resumen ejecutivo</span>
+      <h3 id="executiveTitle">Un perfil híbrido orientado a negocio.</h3>
+      <p>Administración, control de gestión, analítica de datos, Business Intelligence, Compras y automatización convergen en un mismo enfoque: transformar información empresarial en conocimiento útil para la decisión.</p>
+      <div class="modal-points">
+        <div class="modal-point"><b>Business Intelligence</b><span>Power BI · Qlik · Power Query · SQL</span></div>
+        <div class="modal-point"><b>Automatización</b><span>Power Automate · n8n · VBA</span></div>
+        <div class="modal-point"><b>Compras & negocio</b><span>Proveedores · competencia · stock · márgenes · ventas</span></div>
+        <div class="modal-point"><b>Tecnología aplicada</b><span>Python · JavaScript · CSS · Firebase · VS Code</span></div>
+      </div>
+      <div class="hero-actions" style="margin-top:22px">
+        <a class="btn-primary" href="#experiencia" id="modalExperience">↗ Ver experiencia</a>
+        <a class="btn-secondary" href="mailto:nantunezn@gmail.com">✉ Contactar</a>
+      </div>
+    </div>
+  </div>
+
+
+<section id="perfil-ampliado" class="section" aria-labelledby="perfil-ampliado-title">
+  <div class="section-inner">
+    <p class="eyebrow">VISIÓN INTEGRAL</p>
+    <h2 id="perfil-ampliado-title">Datos, negocio y tecnología al servicio de la decisión</h2>
+    <p>Perfil transversal que conecta análisis de datos, control de gestión, administración, compras, finanzas, automatización y transformación mediante IA.</p>
+    <div class="skills-grid">
+      <article class="skill-card"><h3>Analítica & Business Intelligence</h3><p>Power BI y Power BI Pro, Power Query, Power Pivot, SQL, SQLite, Microsoft SQL Server, Qlik, Tableau, Excel avanzado y VBA; análisis de stock, márgenes, compras, ventas, clientes, costes y rentabilidad.</p></article>
+      <article class="skill-card"><h3>IA generativa & agentes</h3><p>ChatGPT Plus, GPTs personalizados y adaptados, agentes de IA y flujos en Copilot Studio; Claude, Claude Code, NotebookLM, Gemini, Perplexity y Comet. Máster en IA Aplicada.</p></article>
+      <article class="skill-card"><h3>Automatización & desarrollo</h3><p>Power Automate, n8n, Zapier y Make; Python, Java, JavaScript, CSS, Firebase, VS Code y Google Antigravity. Diseño de soluciones y automatización de tareas y procesos.</p></article>
+      <article class="skill-card"><h3>Gestión empresarial & sistemas</h3><p>Gestión de compras, proveedores, competencia y productos equivalentes; ERP Go! Manage de Telematel, Dynamics NAV, SAP, SAGE y DELSOL; Microsoft 365, SharePoint y Canva.</p></article>
+      <article class="skill-card"><h3>Finanzas, contabilidad & fiscalidad</h3><p>Contabilidad y ajustes, control presupuestario y de gestión, facturación, tesorería, bancos y liquidaciones; gestión financiera, análisis económico, modelos tributarios y planificación estratégica.</p></article>
+      <article class="skill-card"><h3>Operaciones & cumplimiento</h3><p>Logística, gestión de stock, RAEE, SCRAP, DEI, PRL/CAE y plataformas de coordinación; apoyo administrativo, documental y de proyectos, incluidas subvenciones CDTI.</p></article>
+    </div>
+  </div>
+</section>
 
 </body>
 </html>
