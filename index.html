@@ -347,7 +347,7 @@
         <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menú" aria-expanded="false">
           <i class="fa-solid fa-bars"></i>
         </button>
-      </nav>
+      <a href="#cv-descarga" class="nav-cv-link">CV PDF</a></nav>
     </div>
   </header>
 
@@ -619,7 +619,50 @@
       </div>
     </section>
 
-    <section id="contacto">
+    
+<!-- CV DOWNLOAD + PERFIL PROFESIONAL AMPLIADO -->
+<section id="cv-descarga" class="cv-download-section" aria-labelledby="cv-download-title">
+  <div class="cv-download-inner">
+    <div class="cv-download-copy">
+      <span class="cv-eyebrow">TRAYECTORIA · ADMINISTRACIÓN · DATOS · IA</span>
+      <h2 id="cv-download-title">Una visión integral del negocio</h2>
+      <p class="cv-lead">Perfil híbrido que conecta la gestión administrativa y contable con la analítica de datos, la inteligencia artificial y la automatización, para convertir la información en control, conocimiento y apoyo a la toma de decisiones.</p>
+      <div class="cv-skill-grid">
+        <article><h3>Administración y contabilidad</h3><p>Contabilidad financiera y analítica de costes; reporting financiero; análisis de márgenes, compras, ventas, existencias y clientes; balances y previsiones económico-financieras; control presupuestario y soporte a la gestión.</p></article>
+        <article><h3>Control de gestión y empresa</h3><p>Seguimiento económico-operativo, análisis de desviaciones, planificación estratégica, gestión administrativa, compras, proveedores, facturación, tesorería y apoyo a Dirección. Experiencia con ERP y procesos empresariales.</p></article>
+        <article><h3>Prevención y coordinación</h3><p>Elaboración y gestión de informes y documentación de PRL, coordinación de actividades empresariales (CAE), plataformas CAE, evaluación de riesgos y seguimiento documental, además de apoyo en cumplimiento y coordinación con servicios de prevención.</p></article>
+        <article><h3>Datos, IA y automatización</h3><p>Power BI, Power Query, Excel avanzado/VBA, SQL, Python, JavaScript, Power Automate y n8n; creación y adaptación de GPTs y agentes, Copilot Studio, Claude/Claude Code, Gemini, NotebookLM, Perplexity y otras herramientas de IA.</p></article>
+      </div>
+      <div class="cv-download-actions">
+        <a class="cv-download-button" href="Norberto-Antunez-CV-2026.pdf" download="Norberto-Antunez-CV-2026.pdf" aria-label="Descargar currículum de Norberto Antúnez en PDF">↓ Descargar CV completo (PDF)</a>
+        <a class="cv-open-button" href="Norberto-Antunez-CV-2026.pdf" target="_blank" rel="noopener">Ver PDF en el navegador ↗</a>
+      </div>
+      <p class="cv-download-note">Documento PDF · Se abre en una pestaña nueva o se descarga según la configuración del navegador.</p>
+    </div>
+  </div>
+</section>
+<style>
+.cv-download-section{padding:clamp(2.5rem,6vw,5.5rem) clamp(1rem,4vw,3rem);margin:2rem auto;max-width:1200px}
+.cv-download-inner{border:1px solid rgba(100,190,255,.24);border-radius:24px;padding:clamp(1.4rem,4vw,3rem);background:linear-gradient(135deg,rgba(20,35,62,.72),rgba(8,14,29,.94));box-shadow:0 18px 55px rgba(0,0,0,.18)}
+.cv-eyebrow{display:inline-block;font-size:.76rem;letter-spacing:.14em;font-weight:750;color:#69c8ff;margin-bottom:1rem}
+.cv-download-section h2{font-size:clamp(1.8rem,4vw,3rem);line-height:1.12;margin:0 0 1rem}
+.cv-lead{font-size:clamp(1rem,1.5vw,1.15rem);line-height:1.75;max-width:850px;color:var(--text-secondary,#b8c5d8)}
+.cv-skill-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:2rem 0}
+.cv-skill-grid article{padding:1.2rem;border:1px solid rgba(140,180,220,.18);border-radius:16px;background:rgba(255,255,255,.025)}
+.cv-skill-grid h3{font-size:1rem;margin:0 0 .65rem;color:var(--accent,#70c8ff)}
+.cv-skill-grid p{margin:0;line-height:1.65;color:var(--text-secondary,#b8c5d8);font-size:.94rem}
+.cv-download-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.6rem}
+.cv-download-button,.cv-open-button{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 1.25rem;border-radius:12px;text-decoration:none;font-weight:750;transition:transform .18s ease,opacity .18s ease}
+.cv-download-button{background:linear-gradient(110deg,#3189ff,#38c5d6);color:#06101e!important}
+.cv-open-button{border:1px solid rgba(130,190,255,.4);color:inherit}
+.cv-download-button:hover,.cv-open-button:hover{transform:translateY(-2px);opacity:.92}
+.cv-download-note{font-size:.82rem;opacity:.72;margin:.9rem 0 0}
+@media(max-width:680px){.cv-skill-grid{grid-template-columns:1fr}.cv-download-actions{flex-direction:column}.cv-download-button,.cv-open-button{width:100%;box-sizing:border-box;text-align:center}}
+@media(prefers-reduced-motion:reduce){.cv-download-button,.cv-open-button{transition:none}}
+</style>
+<!-- /CV DOWNLOAD -->
+
+<section id="contacto">
       <div class="container">
         <div class="contact-card reveal">
           <span class="eyebrow">07 · Contacto</span>
