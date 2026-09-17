@@ -6,6 +6,19 @@
   <meta name="theme-color" content="#060914">
   <meta name="description" content="Portfolio profesional de Norberto Manuel Antúnez Núñez — Analista de Datos, Business Intelligence, Automatización y Compras.">
   <meta name="author" content="Norberto Manuel Antúnez Núñez">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Norberto Manuel Antúnez Núñez | Analista de Datos & Business Intelligence">
+  <meta property="og:description" content="Portfolio profesional: analítica de datos, Business Intelligence, compras, ERP y automatización.">
+  <meta property="og:url" content="https://berto2026.github.io/Norberto-CV/">
+  <meta property="og:image" content="https://berto2026.github.io/Norberto-CV/norberto-perfil.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Norberto Manuel Antúnez Núñez | Portfolio profesional">
+  <meta name="twitter:description" content="Analista de Datos · Business Intelligence · Automatización">
+  <meta name="twitter:image" content="https://berto2026.github.io/Norberto-CV/norberto-perfil.jpg">
+  <link rel="icon" type="image/jpeg" href="norberto-perfil.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <title>Norberto Manuel Antúnez Núñez | Data · BI · Automation</title>
 <style>
     :root{
@@ -233,7 +246,7 @@
         padding:10px;border:1px solid var(--line);border-radius:18px;background:rgba(7,12,23,.96);
         box-shadow:0 25px 60px rgba(0,0,0,.45);opacity:0;pointer-events:none;transform:translateY(-8px);transition:.25s
       }
-      .nav-links.open{opacity:1;pointer-events:auto;transform:none}
+      .nav-links.open{opacity:1;pointer-events:auto;transform:none;z-index:1000}
       .nav-links a{display:block;padding:13px 14px;border-radius:11px}.nav-links a:hover{background:rgba(255,255,255,.04)}
       .nav-links a::after{display:none}
       section{padding:82px 0}.section-head{margin-bottom:38px}
@@ -398,7 +411,7 @@ body.welcome-locked{overflow:hidden}
         </a>
 
         <ul class="nav-links" id="navLinks">
-          <li><a href="#perfil">Perfil</a></li>
+          <li><a href="#inicio">Perfil</a></li>
           <li><a href="#experiencia">Experiencia profesional</a></li>
           <li><a href="#formacion">Formación académica</a></li>
           <li><a href="#tecnologias">Tecnologías</a></li>
@@ -410,7 +423,7 @@ body.welcome-locked{overflow:hidden}
 
         <a class="nav-cta" href="#contacto">➜ Contactar</a>
         <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menú" aria-expanded="false">
-          <i class="fa-solid fa-bars"></i>
+          ☰
         </button>
       <a href="#cv-descarga" class="nav-cv-link">CV PDF</a></nav>
     </div>
@@ -485,10 +498,10 @@ body.welcome-locked{overflow:hidden}
           <article class="timeline-item reveal">
             <span class="timeline-node"></span>
             <div class="timeline-card">
-              <span class="current-tag">ACTUALIDAD</span>
+              <span class="current-tag">PUESTO ACTUAL</span>
               <div class="date">Actualidad</div>
               <h3>Analista de Datos</h3>
-              <div class="company"><i class="fa-solid fa-building"></i><span>Departamento de Compras · GRUPO SUMELEX, S.A. · Multinacional IMELCO</span></div>
+              <div class="company">▦<span>Departamento de Compras · GRUPO SUMELEX, S.A. · Multinacional IMELCO</span></div>
               <ul>
                 <li><strong>Analítica & BI:</strong> extracción, transformación y limpieza de grandes volúmenes de datos con Power Query; dashboards e informes estratégicos con Power BI y análisis complementario con Qlik.</li>
                 <li><strong>Dirección:</strong> analíticas avanzadas e indicadores clave para planificación estratégica y toma de decisiones.</li>
@@ -505,7 +518,7 @@ body.welcome-locked{overflow:hidden}
             <div class="timeline-card">
               <div class="date">2025</div>
               <h3>Controller de Gestión</h3>
-              <div class="company"><i class="fa-solid fa-recycle"></i><span>MOVILEX RECYCLING · Lobón, Badajoz</span></div>
+              <div class="company">♻<span>MOVILEX RECYCLING · Lobón, Badajoz</span></div>
               <ul>
                 <li>Contabilidad, control de operaciones y gestión financiera con Microsoft Dynamics NAV.</li>
                 <li>Análisis de costes y datos financieros mediante consultas Query-SQL y Power BI.</li>
@@ -600,7 +613,7 @@ body.welcome-locked{overflow:hidden}
             <div class="edu"><div class="edu-year">140 HORAS</div><h3>Análisis y Programación en Java</h3><p>Estructura de datos y lógica computacional.</p></div>
             <div class="edu"><div class="edu-year">100 HORAS</div><h3>Data Mining & Business Intelligence</h3><p>Análisis de información económica y elaboración de informes.</p></div>
             <div class="edu"><div class="edu-year">60 HORAS</div><h3>ChatGPT y DALL-E</h3><p>Apoyo a tareas administrativas y mejora de productividad.</p></div>
-            <div class="edu"><div class="edu-year">CERTIFICACIONES</div><h3>MOS · Professional SQL Developer · SAP · SAGE · DELSOL</h3><p>Certificaciones, cursos y uso profesional según el área correspondiente.</p></div>
+            <div class="edu" id="certificaciones"><div class="edu-year">CERTIFICACIONES</div><h3>MOS · Professional SQL Developer · SAP · SAGE · DELSOL · Microsoft Dynamics NAV</h3><p>Certificaciones y cursos acreditados, junto con experiencia práctica en sistemas ERP como Microsoft Dynamics NAV, según corresponda.</p></div>
             <div class="edu"><div class="edu-year">OTROS</div><h3>Inglés B1 · ECTS adicionales</h3><p>Dirección de Ventas I y II · Gestión de la Competencia · Liderazgo Emprendedor · Asesoría Fiscal · ISO 9001-14001.</p></div>
           </div>
         </div>
@@ -610,7 +623,7 @@ body.welcome-locked{overflow:hidden}
     <section id="tecnologias">
       <div class="container">
         <div class="section-head reveal">
-          <span class="eyebrow">03 · Ecosistema</span>
+          <span class="eyebrow">04 · Ecosistema</span>
           <h2>Stack tecnológico.</h2>
           <p>Herramientas seleccionadas para analizar, transformar, automatizar y comunicar información empresarial.</p>
         </div>
@@ -637,7 +650,7 @@ body.welcome-locked{overflow:hidden}
     <section id="competencias">
       <div class="container">
         <div class="section-head reveal">
-          <span class="eyebrow">04 · Core Skills</span>
+          <span class="eyebrow">05 · Core Skills</span>
           <h2>Lo que aporto al negocio.</h2>
           <p>Competencias técnicas y profesionales que conectan análisis, gestión y ejecución.</p>
         </div>
@@ -656,7 +669,7 @@ body.welcome-locked{overflow:hidden}
     <section id="capacidades">
       <div class="container">
         <div class="section-head reveal">
-          <span class="eyebrow">05 · Aplicación</span>
+          <span class="eyebrow">06 · Aplicación</span>
           <h2>Datos que se convierten en acción.</h2>
           <p>El valor diferencial está en conectar la información con una necesidad empresarial concreta.</p>
         </div>
@@ -688,6 +701,22 @@ body.welcome-locked{overflow:hidden}
 
     
 <!-- CV DOWNLOAD + PERFIL PROFESIONAL AMPLIADO -->
+<section id="perfil-ampliado" class="section" aria-labelledby="perfil-ampliado-title">
+  <div class="section-inner">
+    <p class="eyebrow">07 · VISIÓN INTEGRAL</p>
+    <h2 id="perfil-ampliado-title">Datos, negocio y tecnología al servicio de la decisión</h2>
+    <p>Perfil transversal que conecta análisis de datos, control de gestión, administración, compras, finanzas, automatización y transformación mediante IA.</p>
+    <div class="skills-grid">
+      <article class="skill-card"><h3>Analítica & Business Intelligence</h3><p>Power BI y Power BI Pro, Power Query, Power Pivot, SQL, SQLite, Microsoft SQL Server, Qlik, Tableau, Excel avanzado y VBA; análisis de stock, márgenes, compras, ventas, clientes, costes y rentabilidad.</p></article>
+      <article class="skill-card"><h3>IA generativa & agentes</h3><p>ChatGPT Plus, GPTs personalizados y adaptados, agentes de IA y flujos en Copilot Studio; Claude, Claude Code, NotebookLM, Gemini, Perplexity y Comet. Máster en IA Aplicada.</p></article>
+      <article class="skill-card"><h3>Automatización & desarrollo</h3><p>Power Automate, n8n, Zapier y Make; Python, Java, JavaScript, CSS, Firebase, VS Code y Google Antigravity. Diseño de soluciones y automatización de tareas y procesos.</p></article>
+      <article class="skill-card"><h3>Gestión empresarial & sistemas</h3><p>Gestión de compras, proveedores, competencia y productos equivalentes; ERP Go! Manage de Telematel, Microsoft Dynamics NAV, SAP, SAGE y DELSOL; Microsoft 365, SharePoint y Canva.</p></article>
+      <article class="skill-card"><h3>Finanzas, contabilidad & fiscalidad</h3><p>Contabilidad y ajustes, control presupuestario y de gestión, facturación, tesorería, bancos y liquidaciones; gestión financiera, análisis económico, modelos tributarios y planificación estratégica.</p></article>
+      <article class="skill-card"><h3>Operaciones & cumplimiento</h3><p>Logística, gestión de stock, RAEE, SCRAP, DEI, PRL/CAE y plataformas de coordinación; apoyo administrativo, documental y de proyectos, incluidas subvenciones CDTI.</p></article>
+    </div>
+  </div>
+</section>
+
 <section id="cv-descarga" class="cv-download-section" aria-labelledby="cv-download-title">
   <div class="cv-download-inner">
     <div class="cv-download-copy">
@@ -732,7 +761,7 @@ body.welcome-locked{overflow:hidden}
 <section id="contacto">
       <div class="container">
         <div class="contact-card reveal">
-          <span class="eyebrow">07 · Contacto</span>
+          <span class="eyebrow">08 · Contacto</span>
           <h2>Hablemos de <span>datos.</span></h2>
           <p>Si buscas un perfil capaz de entender el negocio, trabajar con datos y convertir la información en herramientas para decidir, podemos conectar.</p>
           <div class="contact-links">
@@ -883,41 +912,10 @@ body.welcome-locked{overflow:hidden}
     })();
   </script>
 
-<div class="modal" id="executiveModal" role="dialog" aria-modal="true" aria-labelledby="executiveTitle">
-    <div class="modal-card">
-      <button class="modal-close" id="closeExecutive" type="button" aria-label="Cerrar">×</button>
-      <span class="eyebrow">Resumen ejecutivo</span>
-      <h3 id="executiveTitle">Un perfil híbrido orientado a negocio.</h3>
-      <p>Administración, control de gestión, analítica de datos, Business Intelligence, Compras y automatización convergen en un mismo enfoque: transformar información empresarial en conocimiento útil para la decisión.</p>
-      <div class="modal-points">
-        <div class="modal-point"><b>Business Intelligence</b><span>Power BI · Qlik · Power Query · SQL</span></div>
-        <div class="modal-point"><b>Automatización</b><span>Power Automate · n8n · VBA</span></div>
-        <div class="modal-point"><b>Compras & negocio</b><span>Proveedores · competencia · stock · márgenes · ventas</span></div>
-        <div class="modal-point"><b>Tecnología aplicada</b><span>Python · JavaScript · CSS · Firebase · VS Code</span></div>
-      </div>
-      <div class="hero-actions" style="margin-top:22px">
-        <a class="btn-primary" href="#experiencia" id="modalExperience">↗ Ver experiencia</a>
-        <a class="btn-secondary" href="mailto:nantunezn@gmail.com">✉ Contactar</a>
-      </div>
-    </div>
-  </div>
 
 
-<section id="perfil-ampliado" class="section" aria-labelledby="perfil-ampliado-title">
-  <div class="section-inner">
-    <p class="eyebrow">VISIÓN INTEGRAL</p>
-    <h2 id="perfil-ampliado-title">Datos, negocio y tecnología al servicio de la decisión</h2>
-    <p>Perfil transversal que conecta análisis de datos, control de gestión, administración, compras, finanzas, automatización y transformación mediante IA.</p>
-    <div class="skills-grid">
-      <article class="skill-card"><h3>Analítica & Business Intelligence</h3><p>Power BI y Power BI Pro, Power Query, Power Pivot, SQL, SQLite, Microsoft SQL Server, Qlik, Tableau, Excel avanzado y VBA; análisis de stock, márgenes, compras, ventas, clientes, costes y rentabilidad.</p></article>
-      <article class="skill-card"><h3>IA generativa & agentes</h3><p>ChatGPT Plus, GPTs personalizados y adaptados, agentes de IA y flujos en Copilot Studio; Claude, Claude Code, NotebookLM, Gemini, Perplexity y Comet. Máster en IA Aplicada.</p></article>
-      <article class="skill-card"><h3>Automatización & desarrollo</h3><p>Power Automate, n8n, Zapier y Make; Python, Java, JavaScript, CSS, Firebase, VS Code y Google Antigravity. Diseño de soluciones y automatización de tareas y procesos.</p></article>
-      <article class="skill-card"><h3>Gestión empresarial & sistemas</h3><p>Gestión de compras, proveedores, competencia y productos equivalentes; ERP Go! Manage de Telematel, Microsoft Dynamics NAV, SAP, SAGE y DELSOL; Microsoft 365, SharePoint y Canva.</p></article>
-      <article class="skill-card"><h3>Finanzas, contabilidad & fiscalidad</h3><p>Contabilidad y ajustes, control presupuestario y de gestión, facturación, tesorería, bancos y liquidaciones; gestión financiera, análisis económico, modelos tributarios y planificación estratégica.</p></article>
-      <article class="skill-card"><h3>Operaciones & cumplimiento</h3><p>Logística, gestión de stock, RAEE, SCRAP, DEI, PRL/CAE y plataformas de coordinación; apoyo administrativo, documental y de proyectos, incluidas subvenciones CDTI.</p></article>
-    </div>
-  </div>
-</section>
+
+
 
 <script>
 (function(){
@@ -934,5 +932,19 @@ body.welcome-locked{overflow:hidden}
   enter.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openPortfolio();}});
 })();
 </script>
+
+  <script>
+  // Copy contact details on long-press/click while preserving mailto/tel fallback.
+  document.querySelectorAll('.contact-link[href^="mailto:"], .contact-link[href^="tel:"]').forEach(link => {
+    link.title = 'Haz clic para copiar; usa el enlace si quieres abrir tu aplicación de contacto';
+    link.addEventListener('click', async event => {
+      const value = link.getAttribute('href').replace(/^(mailto:|tel:)/, '');
+      if (navigator.clipboard && window.isSecureContext) {
+        event.preventDefault();
+        try { await navigator.clipboard.writeText(value); const old=link.dataset.originalText || link.textContent; link.dataset.originalText=old; link.textContent='✓ Copiado: '+value; setTimeout(()=>{link.textContent=old},1800); } catch (_) {}
+      }
+    });
+  });
+  </script>
 </body>
 </html>
