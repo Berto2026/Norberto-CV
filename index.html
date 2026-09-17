@@ -322,7 +322,8 @@
 /* Corrección de imagen de perfil y accesibilidad móvil */
 .portrait-frame{overflow:hidden}
 .portrait-frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:center top;opacity:1;visibility:visible}
-</style>\n
+</style>
+
 <style>
 /* Formación prioritaria tras la experiencia: presentación ejecutiva, legible y adaptable */
 #formacion.education-featured{position:relative;padding-top:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem);background:linear-gradient(180deg,rgba(18,39,66,.30),rgba(7,13,27,.05));border-top:1px solid rgba(88,196,255,.22);border-bottom:1px solid rgba(88,196,255,.16)}
@@ -335,9 +336,54 @@
 #formacion.education-featured .edu h3{line-height:1.35}
 @media(max-width:680px){#formacion.education-featured .edu-col{padding:1rem}#formacion.education-featured .edu{padding:.85rem 0}}
 </style>
-\n</head>
+\n 
+<style>
+#portfolioWelcome{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;overflow:auto;padding:34px 22px;background:radial-gradient(ellipse at 78% 18%,rgba(25,112,190,.22),transparent 38%),radial-gradient(ellipse at 15% 85%,rgba(95,55,190,.18),transparent 40%),#060914;color:#f7fbff;transition:opacity .65s ease,visibility .65s ease}
+#portfolioWelcome.is-leaving{opacity:0;visibility:hidden;pointer-events:none}
+.welcome-grid{position:absolute;inset:0;opacity:.22;background-image:linear-gradient(rgba(117,171,220,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(117,171,220,.12) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,black,transparent 95%)}
+.welcome-content{position:relative;width:min(100%,850px);text-align:center;padding:clamp(18px,4vw,48px) 0;animation:welcomeRise .8s ease both}
+.welcome-kicker{display:flex;align-items:center;justify-content:center;gap:10px;color:#83dff3;font:600 .72rem/1.5 ui-monospace,monospace;letter-spacing:.2em}
+.welcome-kicker span{width:7px;height:7px;border-radius:50%;background:#26e6a6;box-shadow:0 0 15px #26e6a6}
+.welcome-monogram{margin:24px auto 15px;width:66px;height:66px;display:grid;place-items:center;border:1px solid rgba(0,229,255,.5);border-radius:20px;background:linear-gradient(135deg,rgba(0,229,255,.16),rgba(155,108,255,.2));font-size:2rem;font-weight:800;color:#eafaff;box-shadow:0 0 45px rgba(0,229,255,.12)}
+.welcome-monogram span{color:#00e5ff}
+.welcome-name{margin:0;font-size:clamp(.8rem,2vw,1rem);letter-spacing:.19em;line-height:1.8;color:#b7c6db}
+.welcome-name strong{color:#fff;font-weight:750}
+.welcome-content h1{margin:28px 0 16px;font-size:clamp(2.15rem,7vw,5.2rem);line-height:1.03;letter-spacing:-.055em;font-weight:800}
+.welcome-content h1 span{background:linear-gradient(100deg,#00e5ff,#6d9dff 58%,#b08aff);color:transparent;background-clip:text;-webkit-background-clip:text}
+.welcome-role{margin:0;color:#d6e0ef;font-size:clamp(.92rem,2.4vw,1.2rem)}
+.welcome-role i{color:#00e5ff;font-style:normal;padding:0 5px}
+.welcome-description{max-width:620px;margin:20px auto 0;color:#9eabc0;line-height:1.8;font-size:clamp(.92rem,2vw,1.08rem)}
+.welcome-tags{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:25px 0 30px}
+.welcome-tags span{border:1px solid rgba(112,190,255,.2);background:rgba(17,31,53,.65);border-radius:999px;padding:8px 12px;color:#9fdff0;font:600 .65rem ui-monospace,monospace;letter-spacing:.08em}
+.welcome-button{display:inline-flex;align-items:center;gap:24px;border:0;border-radius:14px;padding:17px 23px;background:linear-gradient(105deg,#00cfe8,#5289ff 65%,#9270ff);color:#06101f;font-weight:800;letter-spacing:.055em;cursor:pointer;box-shadow:0 12px 40px rgba(0,198,255,.2);transition:transform .2s,box-shadow .2s}
+.welcome-button:hover{transform:translateY(-3px);box-shadow:0 16px 50px rgba(0,198,255,.32)}
+.welcome-button b{font-size:1.2rem}
+.welcome-foot{margin-top:42px;color:#64758f;font:500 .63rem ui-monospace,monospace;letter-spacing:.14em}
+body.welcome-locked{overflow:hidden}
+@keyframes welcomeRise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){#portfolioWelcome{padding:22px 18px}.welcome-monogram{margin-top:20px}.welcome-foot{line-height:1.8;margin-top:30px}.welcome-button{width:100%;justify-content:center;gap:12px}}
+@media(prefers-reduced-motion:reduce){#portfolioWelcome,.welcome-content,.welcome-button{animation:none;transition:none}}
+/* Evita desbordamientos y panel móvil translúcido */
+@media(max-width:760px){.nav-links{max-height:min(72vh,560px);overflow-y:auto;background:rgba(6,9,20,.98)!important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(112,190,255,.18);border-radius:18px;padding:18px!important;box-shadow:0 22px 60px rgba(0,0,0,.55)}.nav-links a{display:block;padding:11px 8px;line-height:1.35}.logo{max-width:65%;font-size:clamp(.72rem,3vw,1rem);white-space:normal;line-height:1.2}.nav-cv-link{white-space:nowrap}}
+</style>
+
+</head>
 
 <body>
+  <section id="portfolioWelcome" aria-label="Bienvenida al portfolio">
+    <div class="welcome-grid" aria-hidden="true"></div>
+    <div class="welcome-content">
+      <div class="welcome-kicker"><span></span> PORTFOLIO PROFESIONAL · 2026</div>
+      <div class="welcome-monogram">N<span>.</span></div>
+      <p class="welcome-name">NORBERTO MANUEL<br><strong>ANTÚNEZ NÚÑEZ</strong></p>
+      <h1>Datos que revelan.<br><span>Decisiones que avanzan.</span></h1>
+      <p class="welcome-role">Analista de Datos <i>·</i> Business Intelligence <i>·</i> Automatización</p>
+      <p class="welcome-description">Conecto negocio, tecnología y analítica para transformar información en conocimiento útil y decisiones empresariales.</p>
+      <div class="welcome-tags"><span>POWER BI</span><span>DATA ANALYTICS</span><span>ERP & AUTOMATION</span></div>
+      <button id="enterPortfolio" class="welcome-button" type="button">EXPLORAR MI PORTFOLIO <b>↗</b></button>
+      <div class="welcome-foot">EXPERIENCIA · FORMACIÓN · TECNOLOGÍA · VISIÓN DE NEGOCIO</div>
+    </div>
+  </section>
   <div class="progress"><span id="progressBar"></span></div>
   <div id="ambient" aria-hidden="true">
     <div class="orb one"></div><div class="orb two"></div><div class="orb three"></div>
@@ -348,16 +394,18 @@
       <nav aria-label="Navegación principal">
         <a class="logo" href="#inicio" aria-label="Ir al inicio">
           <span class="logo-mark">N</span>
-          NORBERTO <span>ANTÚNEZ</span>
+          NORBERTO MANUEL <span>ANTÚNEZ NÚÑEZ</span>
         </a>
 
         <ul class="nav-links" id="navLinks">
           <li><a href="#perfil">Perfil</a></li>
-          <li><a href="#experiencia">Experiencia</a></li>
+          <li><a href="#experiencia">Experiencia profesional</a></li>
+          <li><a href="#formacion">Formación académica</a></li>
           <li><a href="#tecnologias">Tecnologías</a></li>
           <li><a href="#competencias">Competencias</a></li>
           <li><a href="#capacidades">Capacidades</a></li>
-          <li><a href="#formacion">Formación</a></li>
+          <li><a href="#certificaciones">Certificaciones</a></li>
+          <li><a href="#contacto">Contacto</a></li>
         </ul>
 
         <a class="nav-cta" href="#contacto">➜ Contactar</a>
@@ -525,7 +573,9 @@
           </article>
         </div>
       </div>
-    </section>\n\n<section id="formacion" class="education-featured">
+    </section>
+
+<section id="formacion" class="education-featured">
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">03 · Formación académica y especialización</span>
@@ -862,12 +912,27 @@
       <article class="skill-card"><h3>Analítica & Business Intelligence</h3><p>Power BI y Power BI Pro, Power Query, Power Pivot, SQL, SQLite, Microsoft SQL Server, Qlik, Tableau, Excel avanzado y VBA; análisis de stock, márgenes, compras, ventas, clientes, costes y rentabilidad.</p></article>
       <article class="skill-card"><h3>IA generativa & agentes</h3><p>ChatGPT Plus, GPTs personalizados y adaptados, agentes de IA y flujos en Copilot Studio; Claude, Claude Code, NotebookLM, Gemini, Perplexity y Comet. Máster en IA Aplicada.</p></article>
       <article class="skill-card"><h3>Automatización & desarrollo</h3><p>Power Automate, n8n, Zapier y Make; Python, Java, JavaScript, CSS, Firebase, VS Code y Google Antigravity. Diseño de soluciones y automatización de tareas y procesos.</p></article>
-      <article class="skill-card"><h3>Gestión empresarial & sistemas</h3><p>Gestión de compras, proveedores, competencia y productos equivalentes; ERP Go! Manage de Telematel, Dynamics NAV, SAP, SAGE y DELSOL; Microsoft 365, SharePoint y Canva.</p></article>
+      <article class="skill-card"><h3>Gestión empresarial & sistemas</h3><p>Gestión de compras, proveedores, competencia y productos equivalentes; ERP Go! Manage de Telematel, Microsoft Dynamics NAV, SAP, SAGE y DELSOL; Microsoft 365, SharePoint y Canva.</p></article>
       <article class="skill-card"><h3>Finanzas, contabilidad & fiscalidad</h3><p>Contabilidad y ajustes, control presupuestario y de gestión, facturación, tesorería, bancos y liquidaciones; gestión financiera, análisis económico, modelos tributarios y planificación estratégica.</p></article>
       <article class="skill-card"><h3>Operaciones & cumplimiento</h3><p>Logística, gestión de stock, RAEE, SCRAP, DEI, PRL/CAE y plataformas de coordinación; apoyo administrativo, documental y de proyectos, incluidas subvenciones CDTI.</p></article>
     </div>
   </div>
 </section>
 
+<script>
+(function(){
+  const welcome=document.getElementById('portfolioWelcome');
+  const enter=document.getElementById('enterPortfolio');
+  if(!welcome||!enter)return;
+  document.body.classList.add('welcome-locked');
+  const openPortfolio=()=>{
+    welcome.classList.add('is-leaving');
+    document.body.classList.remove('welcome-locked');
+    window.setTimeout(()=>{welcome.remove();document.getElementById('inicio')?.scrollIntoView({behavior:'smooth',block:'start'});},680);
+  };
+  enter.addEventListener('click',openPortfolio);
+  enter.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openPortfolio();}});
+})();
+</script>
 </body>
 </html>
